@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
     <loc>https://sitoweb.info/</loc>
@@ -14,6 +14,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://sitoweb.info/template-sito-web.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/sviluppo-sito-web.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.86</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/sito-web-wordpress.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/sito-web-vetrina.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.87</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/sito-web-seo.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
+  </url>
+  <url>
     <loc>https://sitoweb.info/sito-web-responsive-cosa-significa.html</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
@@ -26,10 +56,40 @@
     <priority>0.88</priority>
   </url>
   <url>
+    <loc>https://sitoweb.info/sito-web-per-vendere-online.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.86</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/sito-web-per-professionisti.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.86</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/sito-web-per-piccole-imprese.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.86</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/sito-web-o-social-network.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+  <url>
     <loc>https://sitoweb.info/sito-web-e-intelligenza-artificiale.html</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.87</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/sito-web-con-aruba.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.86</priority>
   </url>
   <url>
     <loc>https://sitoweb.info/sito-statico-o-wordpress.html</loc>
@@ -38,10 +98,40 @@
     <priority>0.88</priority>
   </url>
   <url>
+    <loc>https://sitoweb.info/sito-ecommerce-woocommerce.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/restyling-sito-web.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/realizzazione-sito-web.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/realizzazione-siti-web-milano.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+  <url>
     <loc>https://sitoweb.info/quando-un-sito-web-e-accessibile.html</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.84</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/progettare-un-sito-web.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.86</priority>
   </url>
   <url>
     <loc>https://sitoweb.info/preventivo-sito-web-cosa-chiedere.html</loc>
@@ -50,10 +140,46 @@
     <priority>0.89</priority>
   </url>
   <url>
+    <loc>https://sitoweb.info/posizionamento-sito-web-google.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.87</priority>
+  </url>
+  <url>
     <loc>https://sitoweb.info/ottimizzare-un-sito-web.html</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.86</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/manutenzione-sito-web.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.87</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/indicizzare-sito-web-google.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.86</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/grafica-sito-web.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.83</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/esempio-sito-web-professionale.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.84</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/email-professionale-con-dominio.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.82</priority>
   </url>
   <url>
     <loc>https://sitoweb.info/dove-pubblicare-un-sito-web.html</loc>
@@ -66,6 +192,12 @@
     <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://sitoweb.info/creare-sito-web-con-ai.html</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.86</priority>
   </url>
   <url>
     <loc>https://sitoweb.info/cosa-mettere-in-un-sito-web.html</loc>

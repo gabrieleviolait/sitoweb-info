@@ -5,126 +5,147 @@
     <link>https://sitoweb.info</link>
     <description>Guide semplici e realizzazione siti web professionali, WordPress, GDPR e sicurezza.</description>
     <language>it-IT</language>
-    <lastBuildDate>Thu, 04 Jun 2026 14:52:20 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jun 2026 22:33:52 +0200</lastBuildDate>
 
+    <item>
+      <title>Template sito web: quando usarlo e quando evitarlo</title>
+      <link>https://sitoweb.info/template-sito-web.html</link>
+      <guid>https://sitoweb.info/template-sito-web.html</guid>
+      <description>Un template può velocizzare il lavoro, ma non sostituisce strategia, contenuti, sicurezza e personalizzazione.</description>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
+    </item>
+    <item>
+      <title>Sviluppo sito web: cosa comprende davvero</title>
+      <link>https://sitoweb.info/sviluppo-sito-web.html</link>
+      <guid>https://sitoweb.info/sviluppo-sito-web.html</guid>
+      <description>Sviluppare un sito non significa solo scrivere codice: serve un progetto completo, sicuro e orientato ai risultati.</description>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
+    </item>
+    <item>
+      <title>Sito web WordPress: vantaggi, limiti e quando sceglierlo</title>
+      <link>https://sitoweb.info/sito-web-wordpress.html</link>
+      <guid>https://sitoweb.info/sito-web-wordpress.html</guid>
+      <description>WordPress è flessibile e potente, ma va configurato e mantenuto bene per restare veloce, sicuro e utile.</description>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
+    </item>
+    <item>
+      <title>Sito web vetrina: cos’è, quanto serve e quando conviene</title>
+      <link>https://sitoweb.info/sito-web-vetrina.html</link>
+      <guid>https://sitoweb.info/sito-web-vetrina.html</guid>
+      <description>Il sito vetrina è la soluzione ideale per presentare un’attività in modo chiaro, veloce e professionale.</description>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
+    </item>
+    <item>
+      <title>Sito web SEO: cosa significa davvero ottimizzato per Google</title>
+      <link>https://sitoweb.info/sito-web-seo.html</link>
+      <guid>https://sitoweb.info/sito-web-seo.html</guid>
+      <description>La SEO non è una magia: è il risultato di struttura, contenuti, tecnica e coerenza.</description>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
+    </item>
     <item>
       <title>Cosa significa sito web responsive?</title>
       <link>https://sitoweb.info/sito-web-responsive-cosa-significa.html</link>
       <guid>https://sitoweb.info/sito-web-responsive-cosa-significa.html</guid>
       <description>Spiegazione semplice di cosa significa sito responsive e perché oggi è indispensabile.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
     </item>
     <item>
       <title>Sito web professionale per azienda: cosa serve davvero</title>
       <link>https://sitoweb.info/sito-web-professionale-per-azienda.html</link>
       <guid>https://sitoweb.info/sito-web-professionale-per-azienda.html</guid>
       <description>Gli elementi essenziali di un sito web aziendale pensato per clienti, Google e strumenti AI.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
+    </item>
+    <item>
+      <title>Sito web per vendere online: cosa serve prima di iniziare</title>
+      <link>https://sitoweb.info/sito-web-per-vendere-online.html</link>
+      <guid>https://sitoweb.info/sito-web-per-vendere-online.html</guid>
+      <description>Vendere online richiede più di una pagina prodotti: servono fiducia, pagamenti sicuri, regole chiare e manutenzione.</description>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
+    </item>
+    <item>
+      <title>Sito web per professionisti: cosa deve comunicare per portare contatti</title>
+      <link>https://sitoweb.info/sito-web-per-professionisti.html</link>
+      <guid>https://sitoweb.info/sito-web-per-professionisti.html</guid>
+      <description>Un sito per professionisti deve spiegare competenza, metodo, fiducia e rendere semplice la richiesta di contatto.</description>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
+    </item>
+    <item>
+      <title>Sito web per piccole imprese: cosa serve senza complicarsi la vita</title>
+      <link>https://sitoweb.info/sito-web-per-piccole-imprese.html</link>
+      <guid>https://sitoweb.info/sito-web-per-piccole-imprese.html</guid>
+      <description>Una piccola impresa non ha bisogno di un sito enorme: ha bisogno di un sito chiaro, veloce, sicuro e orientato ai contatti.</description>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
+    </item>
+    <item>
+      <title>Sito web o social network: cosa conviene per un’attività?</title>
+      <link>https://sitoweb.info/sito-web-o-social-network.html</link>
+      <guid>https://sitoweb.info/sito-web-o-social-network.html</guid>
+      <description>I social sono utili, ma il sito resta la base ufficiale che controlli davvero.</description>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
     </item>
     <item>
       <title>Perché un sito web serve ancora di più con l'intelligenza artificiale</title>
       <link>https://sitoweb.info/sito-web-e-intelligenza-artificiale.html</link>
       <guid>https://sitoweb.info/sito-web-e-intelligenza-artificiale.html</guid>
       <description>Perché nell'era dell'AI avere un sito chiaro, aggiornato e strutturato è ancora più importante.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
+    </item>
+    <item>
+      <title>Sito web con Aruba: quando conviene e cosa valutare</title>
+      <link>https://sitoweb.info/sito-web-con-aruba.html</link>
+      <guid>https://sitoweb.info/sito-web-con-aruba.html</guid>
+      <description>Aruba può essere una base utile per dominio, hosting ed email, ma per un sito aziendale conviene capire bene cosa include e cosa manca.</description>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
     </item>
     <item>
       <title>Sito statico o WordPress: quale scegliere?</title>
       <link>https://sitoweb.info/sito-statico-o-wordpress.html</link>
       <guid>https://sitoweb.info/sito-statico-o-wordpress.html</guid>
       <description>Una guida chiara per capire quando conviene un sito statico e quando è meglio WordPress.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
+    </item>
+    <item>
+      <title>Sito e-commerce con WooCommerce: quando conviene</title>
+      <link>https://sitoweb.info/sito-ecommerce-woocommerce.html</link>
+      <guid>https://sitoweb.info/sito-ecommerce-woocommerce.html</guid>
+      <description>WooCommerce è flessibile per vendere online con WordPress, ma richiede configurazione e manutenzione seria.</description>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
+    </item>
+    <item>
+      <title>Restyling sito web: quando conviene rifare o aggiornare il sito</title>
+      <link>https://sitoweb.info/restyling-sito-web.html</link>
+      <guid>https://sitoweb.info/restyling-sito-web.html</guid>
+      <description>Non sempre serve rifare tutto: a volte basta un restyling mirato, altre volte conviene ripartire da zero.</description>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
+    </item>
+    <item>
+      <title>Realizzazione sito web: cosa include un lavoro fatto bene</title>
+      <link>https://sitoweb.info/realizzazione-sito-web.html</link>
+      <guid>https://sitoweb.info/realizzazione-sito-web.html</guid>
+      <description>Una guida per capire cosa dovrebbe comprendere davvero la realizzazione di un sito web professionale.</description>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
+    </item>
+    <item>
+      <title>Realizzazione siti web Milano: cosa valutare se lavori in zona</title>
+      <link>https://sitoweb.info/realizzazione-siti-web-milano.html</link>
+      <guid>https://sitoweb.info/realizzazione-siti-web-milano.html</guid>
+      <description>Per chi cerca un sito a Milano o lavora in Lombardia, contano chiarezza, SEO locale, contatti e affidabilità.</description>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
     </item>
     <item>
       <title>Quando un sito web è accessibile?</title>
       <link>https://sitoweb.info/quando-un-sito-web-e-accessibile.html</link>
       <guid>https://sitoweb.info/quando-un-sito-web-e-accessibile.html</guid>
       <description>Guida semplice all'accessibilità web: leggibilità, navigazione, contrasti, testi alternativi e struttura.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
     </item>
     <item>
-      <title>Preventivo sito web: cosa chiedere prima di accettare</title>
-      <link>https://sitoweb.info/preventivo-sito-web-cosa-chiedere.html</link>
-      <guid>https://sitoweb.info/preventivo-sito-web-cosa-chiedere.html</guid>
-      <description>Le domande giuste da fare prima di accettare un preventivo per un sito web.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
-    </item>
-    <item>
-      <title>Come ottimizzare un sito web: velocità, SEO, contenuti e conversioni</title>
-      <link>https://sitoweb.info/ottimizzare-un-sito-web.html</link>
-      <guid>https://sitoweb.info/ottimizzare-un-sito-web.html</guid>
-      <description>Una guida pratica per capire cosa significa ottimizzare un sito web e da dove iniziare.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
-    </item>
-    <item>
-      <title>Dove pubblicare un sito web: hosting, dominio e piattaforme</title>
-      <link>https://sitoweb.info/dove-pubblicare-un-sito-web.html</link>
-      <guid>https://sitoweb.info/dove-pubblicare-un-sito-web.html</guid>
-      <description>Le opzioni principali per pubblicare un sito web online e scegliere quella più adatta.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
-    </item>
-    <item>
-      <title>Dominio e hosting: che differenza c'è in un sito web?</title>
-      <link>https://sitoweb.info/dominio-hosting-sito-web-differenza.html</link>
-      <guid>https://sitoweb.info/dominio-hosting-sito-web-differenza.html</guid>
-      <description>Una spiegazione chiara della differenza tra dominio e hosting per chi deve creare un sito web.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
-    </item>
-    <item>
-      <title>Cosa mettere in un sito web: pagine, contenuti e informazioni importanti</title>
-      <link>https://sitoweb.info/cosa-mettere-in-un-sito-web.html</link>
-      <guid>https://sitoweb.info/cosa-mettere-in-un-sito-web.html</guid>
-      <description>Le informazioni davvero importanti da inserire in un sito web professionale.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
-    </item>
-    <item>
-      <title>Cosa deve avere un sito web fatto bene</title>
-      <link>https://sitoweb.info/cosa-deve-avere-un-sito-web.html</link>
-      <guid>https://sitoweb.info/cosa-deve-avere-un-sito-web.html</guid>
-      <description>La checklist essenziale per capire se un sito web è completo e professionale.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
-    </item>
-    <item>
-      <title>Come pubblicare un sito web online passo dopo passo</title>
-      <link>https://sitoweb.info/come-pubblicare-un-sito-web.html</link>
-      <guid>https://sitoweb.info/come-pubblicare-un-sito-web.html</guid>
-      <description>La checklist pratica per pubblicare un sito web senza dimenticare passaggi tecnici e SEO.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
-    </item>
-    <item>
-      <title>Come modificare un sito web: cosa cambia tra WordPress, HTML e sito statico</title>
-      <link>https://sitoweb.info/come-modificare-un-sito-web.html</link>
-      <guid>https://sitoweb.info/come-modificare-un-sito-web.html</guid>
-      <description>Guida pratica per capire come modificare un sito web senza rompere struttura, SEO o sicurezza.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
-    </item>
-    <item>
-      <title>Come creare un sito web: guida semplice per partire bene</title>
-      <link>https://sitoweb.info/come-creare-un-sito-web.html</link>
-      <guid>https://sitoweb.info/come-creare-un-sito-web.html</guid>
-      <description>Una guida pratica per capire come creare un sito web senza partire dagli strumenti sbagliati.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
-    </item>
-    <item>
-      <title>Come aprire un sito web: cosa serve prima di pubblicarlo online</title>
-      <link>https://sitoweb.info/come-aprire-un-sito-web.html</link>
-      <guid>https://sitoweb.info/come-aprire-un-sito-web.html</guid>
-      <description>Tutto quello che serve per aprire un sito web in modo ordinato, professionale e senza sorprese.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
-    </item>
-    <item>
-      <title>Chi può creare un sito web e quando conviene affidarsi a un professionista</title>
-      <link>https://sitoweb.info/chi-puo-creare-un-sito-web.html</link>
-      <guid>https://sitoweb.info/chi-puo-creare-un-sito-web.html</guid>
-      <description>Una guida per capire chi può realizzare un sito web e quale soluzione scegliere in base al progetto.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
-    </item>
-    <item>
-      <title>Analisi sito web: cosa controllare per capire se funziona davvero</title>
-      <link>https://sitoweb.info/analisi-sito-web-verifica-errori.html</link>
-      <guid>https://sitoweb.info/analisi-sito-web-verifica-errori.html</guid>
-      <description>Una checklist chiara per analizzare un sito web e capire quali problemi correggere.</description>
-      <pubDate>Thu, 04 Jun 2026 14:52:20 +0200</pubDate>
+      <title>Progettare un sito web: cosa decidere prima di iniziare</title>
+      <link>https://sitoweb.info/progettare-un-sito-web.html</link>
+      <guid>https://sitoweb.info/progettare-un-sito-web.html</guid>
+      <description>La progettazione è la fase che evita siti confusi, costi extra e risultati deboli.</description>
+      <pubDate>Thu, 04 Jun 2026 22:33:52 +0200</pubDate>
     </item>
   </channel>
 </rss>
