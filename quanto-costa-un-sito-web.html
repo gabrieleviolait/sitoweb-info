@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Quanto costa un sito web? Guida chiara per aziende e professionisti</title>
+  <meta name="description" content="Quanto costa creare un sito web professionale: cosa incide sul prezzo, costi nascosti, differenze tra sito statico, WordPress ed e-commerce.">
+  <link rel="canonical" href="https://sitoweb.info/quanto-costa-un-sito-web.html">
+  <meta property="og:title" content="Quanto costa un sito web? Guida chiara per aziende e professionisti">
+  <meta property="og:description" content="Quanto costa creare un sito web professionale: cosa incide sul prezzo, costi nascosti, differenze tra sito statico, WordPress ed e-commerce.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sitoweb.info/quanto-costa-un-sito-web.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #1e1e2f;
+      line-height: 1.6;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid #eef2f6;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(4px);
+      background: rgba(255,255,255,0.88);
+    }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .logo { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; color: #0b2b4a; }
+    .logo span { color: #2563eb; }
+    .nav-links { display: flex; align-items: center; gap: 1.6rem; font-weight: 500; }
+    .nav-links a { text-decoration: none; color: #1e293b; transition: color 0.2s; }
+    .nav-links a:hover { color: #2563eb; }
+    .menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: #0b2b4a; }
+    .btn-outline, .btn-primary, .btn-light {
+      padding: 12px 24px;
+      border-radius: 60px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s ease;
+      border: 1.5px solid #2563eb;
+      text-align: center;
+    }
+    .btn-outline { background: transparent; color: #2563eb; }
+    .btn-outline:hover { background: #2563eb; color: #fff; transform: translateY(-2px); }
+    .btn-primary { background: #2563eb; color: white; box-shadow: 0 12px 18px -8px rgba(37,99,235,0.25); }
+    .btn-primary:hover { background: #1d4ed8; color: white; transform: translateY(-3px); box-shadow: 0 20px 25px -8px rgba(37,99,235,0.32); }
+    .btn-light { background: #fff; color: #0b2b4a; border-color: #fff; }
+    .btn-light:hover { transform: translateY(-2px); box-shadow: 0 14px 24px -12px rgba(0,0,0,0.2); }
+    section { padding: 82px 0; }
+    h1, h2, h3 { color: #0b2b4a; letter-spacing: -0.025em; line-height: 1.18; }
+    h1 { font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: 800; margin-bottom: 24px; }
+    h2 { font-size: clamp(2rem, 3.4vw, 3rem); font-weight: 800; margin-bottom: 20px; }
+    h3 { font-size: 1.45rem; font-weight: 750; margin-bottom: 14px; }
+    p { color: #475569; }
+    .hero { padding: 60px 0 70px; display: flex; align-items: center; flex-wrap: wrap; gap: 46px; }
+    .hero-content { flex: 1 1 520px; }
+    .hero-sub { font-size: 1.22rem; color: #475569; margin-bottom: 30px; max-width: 760px; }
+    .hero-highlight { color: #2563eb; border-bottom: 4px solid #93c5fd; }
+    .badge {
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 7px 15px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .hero-image {
+      flex: 1 1 360px;
+      background: linear-gradient(145deg, #ffffff, #f8fbff);
+      padding: 34px;
+      border-radius: 40px;
+      box-shadow: 0 30px 46px -24px rgba(15,23,42,0.18);
+      border: 1px solid #eef2f6;
+      text-align: center;
+    }
+    .hero-image i.main-icon { font-size: 9.5rem; color: #2563eb; opacity: 0.9; }
+    .mini-proof { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 14px 22px; color: #475569; font-weight: 600; }
+    .mini-proof i, .feature-list i, .check-list i { color: #10b981; }
+    .section-intro { max-width: 820px; margin: 0 auto 34px; text-align: center; font-size: 1.12rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; margin-top: 34px; }
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 32px 24px;
+      box-shadow: 0 15px 30px -14px rgba(15,23,42,0.1);
+      border: 1px solid #eef2f6;
+      transition: all 0.25s;
+    }
+    .card:hover { transform: translateY(-7px); box-shadow: 0 25px 35px -16px rgba(37,99,235,0.18); border-color: #bfdbfe; }
+    .card-icon { font-size: 2.5rem; color: #2563eb; margin-bottom: 18px; }
+    .soft-bg { background: #fafcff; }
+    .blue-bg { background: #0b2b4a; color: white; }
+    .blue-bg h2, .blue-bg h3, .blue-bg p { color: white; }
+    .blue-bg p { opacity: 0.9; }
+    .two-columns { display: flex; gap: 40px; flex-wrap: wrap; align-items: stretch; }
+    .col { flex: 1 1 320px; }
+    .legal-box, .info-box {
+      background: #f9fafb;
+      border-radius: 24px;
+      padding: 30px;
+      border-left: 6px solid #2563eb;
+    }
+    .info-box { border-left-color: #10b981; }
+    .check-list, .feature-list { list-style: none; margin: 20px 0; }
+    .check-list li, .feature-list li { padding: 8px 0; display: flex; align-items: flex-start; gap: 10px; color: #334155; }
+    .comparison-table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 22px; background: white; box-shadow: 0 16px 32px -18px rgba(15,23,42,0.16); }
+    .comparison-table th, .comparison-table td { padding: 16px; border-bottom: 1px solid #e2e8f0; text-align: left; color: #334155; }
+    .comparison-table th { background: #eff6ff; color: #0b2b4a; }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .quote-card { background: #0b2b4a; color: white; padding: 30px; border-radius: 32px; }
+    .quote-card p { color: white; opacity: 0.95; }
+    .price { font-size: 2.45rem; font-weight: 800; margin: 20px 0 8px; color: #0b2b4a; }
+    .price small { font-size: 1rem; font-weight: 500; color: #64748b; }
+    .renewal { font-weight: 600; color: #334155; background: #f8fafc; padding: 7px 13px; border-radius: 40px; display: inline-block; margin: 10px 0 18px; }
+    .testimonial { background: #f8fafc; padding: 24px; border-radius: 24px; font-style: italic; border: 1px solid #e2e8f0; }
+    .testimonial i { color: #fbbf24; }
+    .cta-band { background: linear-gradient(135deg, #2563eb, #0b2b4a); color: white; border-radius: 34px; padding: 42px; display: flex; gap: 28px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    .cta-band h2, .cta-band p { color: white; }
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 24px;
+      background: #25D366;
+      color: white;
+      font-weight: 700;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+      animation: pulse 1.5s infinite;
+    }
+    .whatsapp-btn i { margin-right: 8px; }
+    .whatsapp-btn:hover { transform: scale(1.05); color: white; }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+    footer { background: #0b2b4a; color: #e2e8f0; padding: 44px 0; }
+    footer a { color: #bfdbfe; text-decoration: none; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px,1fr)); gap: 30px; }
+    hr { border: none; border-top: 1px solid #e2e8f0; margin: 30px 0; }
+    @media (max-width: 900px) {
+      .nav-bar { position: relative; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; flex-direction: column; gap: 1.2rem; padding: 20px; border-top: 1px solid #eef2f6; box-shadow: 0 10px 20px rgba(0,0,0,0.05); z-index: 100; }
+      .nav-links.active { display: flex; }
+      .menu-toggle { display: block; }
+      header .btn-outline { display: none; }
+      .hero { padding-top: 35px; }
+      .hero-image i.main-icon { font-size: 7rem; }
+      .comparison-table { font-size: 0.92rem; }
+      .comparison-table th, .comparison-table td { padding: 12px; }
+    }
+  
+    .article-hero { padding: 56px 0 36px; background: linear-gradient(180deg,#fafcff 0%,#ffffff 100%); }
+    .article-wrap { max-width: 920px; margin: 0 auto; }
+    .article-wrap h1 { font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.15; color: #0b2b4a; margin: 18px 0 18px; letter-spacing: -0.03em; }
+    .article-wrap h2 { margin-top: 42px; font-size: 2rem; }
+    .article-wrap h3 { margin-top: 28px; color: #0b2b4a; }
+    .article-wrap p { margin: 14px 0; font-size: 1.08rem; color: #334155; }
+    .article-wrap ul, .article-wrap ol { margin: 18px 0 18px 24px; color: #334155; }
+    .article-wrap li { margin: 10px 0; }
+    .breadcrumb { color:#64748b; font-size:.95rem; margin-bottom: 18px; }
+    .breadcrumb a { color:#2563eb; text-decoration:none; font-weight:600; }
+    .article-meta { display:flex; gap: 12px; flex-wrap:wrap; color:#64748b; margin-bottom: 18px; }
+    .article-card-list { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:24px; margin-top: 34px; }
+    .article-card-list .card a { color:#2563eb; text-decoration:none; font-weight:700; }
+    .toc { background:#f8fafc; border:1px solid #e2e8f0; border-radius:24px; padding:24px; margin:30px 0; }
+    .toc a { color:#2563eb; text-decoration:none; font-weight:600; }
+    .note-box { background:#eef2ff; border:1px solid #dbeafe; border-radius:24px; padding:24px; margin: 28px 0; }
+    .warning-box { background:#fff7ed; border:1px solid #fed7aa; border-radius:24px; padding:24px; margin: 28px 0; }
+    .cta-panel { background:#0b2b4a; color:white; border-radius:32px; padding:34px; margin:48px 0; }
+    .cta-panel h2, .cta-panel p { color:white; }
+    .cta-panel p { opacity:.92; }
+    .small-link-list a { display:inline-block; margin: 8px 10px 0 0; color:#2563eb; text-decoration:none; font-weight:700; }
+    .blog-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:26px; margin-top:34px; }
+    .blog-grid .card { display:flex; flex-direction:column; }
+    .blog-grid .card p { flex:1; }
+    .blog-grid .card a { color:#2563eb; font-weight:700; text-decoration:none; }
+</style>
+</head>
+<body>
+<header>
+  <div class="container nav-bar">
+    <a class="logo" href="index.html" style="text-decoration:none;">SitoWeb<span>.info</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Apri menu"><i class="fas fa-bars"></i></button>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#guida">Guida</a>
+      <a href="index.html#ai">Siti e AI</a>
+      <a href="index.html#scelta">Quale sito scegliere</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#pacchetti">Pacchetti</a>
+      <a href="index.html#contatti">Contatti</a>
+    </nav>
+    <a href="index.html#contatti" class="btn-outline">Consulenza gratuita</a>
+  </div>
+</header>
+<main>
+
+<section class="article-hero">
+  <div class="container article-wrap">
+    <div class="breadcrumb"><a href="index.html">Home</a> / <a href="blog.html">Blog</a> / Quanto costa un sito web</div>
+    <span class="badge"><i class="fas fa-euro-sign"></i> Prezzi e scelte</span>
+    <h1>Quanto costa un sito web?</h1>
+    <div class="article-meta"><span>Guida aggiornata 2026</span><span>•</span><span>Lettura: 7 minuti</span></div>
+    <p class="hero-sub">Il prezzo di un sito web non dipende solo dalla grafica: contano obiettivi, contenuti, funzioni, gestione, sicurezza, SEO, GDPR e manutenzione.</p>
+  </div>
+</section>
+<section>
+  <article class="container article-wrap">
+    <div class="toc">
+      <strong>In questa guida:</strong>
+      <ul>
+        <li><a href="#da-cosa-dipende">Da cosa dipende il costo</a></li>
+        <li><a href="#fasce">Fasce indicative di prezzo</a></li>
+        <li><a href="#costi-nascosti">Costi nascosti da considerare</a></li>
+        <li><a href="#azienda">Perché per un'azienda conviene investire</a></li>
+      </ul>
+    </div>
+
+    <h2 id="da-cosa-dipende">Da cosa dipende il costo di un sito web</h2>
+    <p>Un sito web può costare poche decine di euro all'anno oppure diverse migliaia. La differenza sta in ciò che deve fare: una semplice pagina vetrina non richiede lo stesso lavoro di un sito WordPress con blog, moduli, automazioni, area riservata o e-commerce.</p>
+    <p>I fattori principali sono: numero di pagine, testi, immagini, design, funzionalità, gestione autonoma dei contenuti, ottimizzazione SEO, configurazione tecnica, privacy, cookie, sicurezza, backup e assistenza dopo la pubblicazione.</p>
+
+    <div class="note-box">
+      <h3>La domanda giusta non è solo “quanto costa?”</h3>
+      <p>La domanda più utile è: <strong>che risultato deve portare il sito?</strong> Se deve solo esistere online, una soluzione minima può bastare. Se deve generare contatti, vendere, comunicare fiducia e farsi trovare, serve una struttura più curata.</p>
+    </div>
+
+    <h2 id="fasce">Fasce indicative di prezzo</h2>
+    <h3>Sito vetrina statico</h3>
+    <p>È adatto a chi ha bisogno di poche pagine, massima velocità e poca manutenzione. Di solito include home, servizi, chi siamo, contatti e pagine legali essenziali.</p>
+    <h3>Sito WordPress professionale</h3>
+    <p>È indicato quando vuoi aggiornare contenuti, pubblicare articoli, gestire pagine e far crescere il sito nel tempo. Richiede più manutenzione, ma offre maggiore autonomia.</p>
+    <h3>E-commerce</h3>
+    <p>È più complesso perché include catalogo prodotti, pagamenti, spedizioni, gestione ordini, termini di vendita, diritto di recesso, sicurezza rafforzata e ottimizzazione delle conversioni.</p>
+
+    <h2 id="costi-nascosti">I costi nascosti da non sottovalutare</h2>
+    <p>Un sito molto economico spesso non include tutto ciò che serve davvero. Prima di scegliere un preventivo, controlla se sono compresi:</p>
+    <ul>
+      <li>dominio e hosting;</li>
+      <li>certificato SSL;</li>
+      <li>email professionale;</li>
+      <li>privacy policy, cookie policy e banner consensi;</li>
+      <li>ottimizzazione SEO base;</li>
+      <li>backup e aggiornamenti;</li>
+      <li>sicurezza anti-malware e anti-brute force;</li>
+      <li>assistenza dopo la consegna.</li>
+    </ul>
+
+    <h2 id="azienda">Perché per un'azienda conviene investire</h2>
+    <p>Per un'attività professionale, il sito non è solo una spesa tecnica: è una fonte ufficiale. Serve a far capire chi sei alle persone, a Google e sempre di più anche agli strumenti basati su intelligenza artificiale.</p>
+    <p>Un sito con dominio proprio, contenuti ordinati, pagine indicizzabili e informazioni chiare aumenta la fiducia, migliora la visibilità e rende più facile essere trovato o consigliato quando qualcuno cerca un servizio.</p>
+
+    <div class="cta-panel">
+      <h2>Vuoi un prezzo chiaro per il tuo caso?</h2>
+      <p>Raccontami che attività hai, quali pagine ti servono e che obiettivo vuoi raggiungere. Ti aiuto a capire se basta un sito statico, se conviene WordPress o se serve una soluzione personalizzata.</p>
+      <a href="index.html#contatti" class="btn-light">Richiedi una consulenza gratuita</a>
+    </div>
+    <div class="small-link-list"><strong>Leggi anche:</strong> <a href="quando-un-sito-web-e-sicuro.html">Quando un sito è sicuro</a> <a href="come-avere-un-sito-web-gratis.html">Come avere un sito gratis</a></div>
+  </article>
+</section>
+
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="color:white;">SitoWeb<span style="color:#93c5fd;">.info</span></div>
+        <p style="margin-top:16px; color:#e2e8f0;">Guida e realizzazione siti web professionali, WordPress, GDPR, sicurezza e visibilità nell'era dell'AI.</p>
+        <p style="color:#e2e8f0;">© 2026 SitoWeb.info – P.IVA 02640890220</p>
+      </div>
+      <div>
+        <h4>Guida</h4>
+        <p><a href="#guida">Che sito ti serve</a></p>
+        <p><a href="#ai">Siti web e AI</a></p>
+        <p><a href="#scelta">Statico o WordPress</a></p>
+        <p><a href="#costi">Costi reali</a></p>
+      </div>
+      <div>
+        <h4>Servizi</h4>
+        <p><a href="index.html#legale">GDPR e sicurezza</a></p>
+        <p><a href="index.html#pacchetti">Pacchetti e prezzi</a></p>
+        <p><a href="#contatti">Consulenza gratuita</a></p>
+        <p><a href="blog.html">Blog e guide</a></p>
+      </div>
+      <div>
+        <h4>Legale</h4>
+        <p><a href="privacy-policy.html">Privacy e Cookie Policy</a></p>
+        <p><a href="https://www.iubenda.com/termini-e-condizioni/26348951">Termini e condizioni su gabrieleviola.it</a></p>
+        <h4 style="margin-top:18px;">Seguimi</h4>
+        <p><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/gabriele-viola/"> LinkedIn</a></p>
+      </div>
+    </div>
+    <hr style="border-color:#334155;">
+    <p style="text-align:center; font-size:0.9rem; color:#e2e8f0;"><a href="https://www.gabrieleviola.it/">SitoWeb.info — Il sito web giusto, spiegato semplice. Di gabrieleviola.it</a></p>
+  </div>
+</footer>
+<script>
+  const toggleBtn = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (toggleBtn && navLinks) {
+    toggleBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+  }
+</script>
+</body>
+</html>

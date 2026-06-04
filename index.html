@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>SitoWeb.info – Guida semplice ai siti web professionali</title>
+  <meta name="description" content="Capisci quale sito web serve alla tua attività: sito statico, WordPress, e-commerce, GDPR, sicurezza, SEO e visibilità anche nell'era dell'intelligenza artificiale.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #1e1e2f;
+      line-height: 1.6;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid #eef2f6;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(4px);
+      background: rgba(255,255,255,0.88);
+    }
+    .nav-bar { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+    .logo { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; color: #0b2b4a; }
+    .logo span { color: #2563eb; }
+    .nav-links { display: flex; align-items: center; gap: 1.6rem; font-weight: 500; }
+    .nav-links a { text-decoration: none; color: #1e293b; transition: color 0.2s; }
+    .nav-links a:hover { color: #2563eb; }
+    .menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: #0b2b4a; }
+    .btn-outline, .btn-primary, .btn-light {
+      padding: 12px 24px;
+      border-radius: 60px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s ease;
+      border: 1.5px solid #2563eb;
+      text-align: center;
+    }
+    .btn-outline { background: transparent; color: #2563eb; }
+    .btn-outline:hover { background: #2563eb; color: #fff; transform: translateY(-2px); }
+    .btn-primary { background: #2563eb; color: white; box-shadow: 0 12px 18px -8px rgba(37,99,235,0.25); }
+    .btn-primary:hover { background: #1d4ed8; color: white; transform: translateY(-3px); box-shadow: 0 20px 25px -8px rgba(37,99,235,0.32); }
+    .btn-light { background: #fff; color: #0b2b4a; border-color: #fff; }
+    .btn-light:hover { transform: translateY(-2px); box-shadow: 0 14px 24px -12px rgba(0,0,0,0.2); }
+    section { padding: 82px 0; }
+    h1, h2, h3 { color: #0b2b4a; letter-spacing: -0.025em; line-height: 1.18; }
+    h1 { font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: 800; margin-bottom: 24px; }
+    h2 { font-size: clamp(2rem, 3.4vw, 3rem); font-weight: 800; margin-bottom: 20px; }
+    h3 { font-size: 1.45rem; font-weight: 750; margin-bottom: 14px; }
+    p { color: #475569; }
+    .hero { padding: 60px 0 70px; display: flex; align-items: center; flex-wrap: wrap; gap: 46px; }
+    .hero-content { flex: 1 1 520px; }
+    .hero-sub { font-size: 1.22rem; color: #475569; margin-bottom: 30px; max-width: 760px; }
+    .hero-highlight { color: #2563eb; border-bottom: 4px solid #93c5fd; }
+    .badge {
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 7px 15px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .hero-image {
+      flex: 1 1 360px;
+      background: linear-gradient(145deg, #ffffff, #f8fbff);
+      padding: 34px;
+      border-radius: 40px;
+      box-shadow: 0 30px 46px -24px rgba(15,23,42,0.18);
+      border: 1px solid #eef2f6;
+      text-align: center;
+    }
+    .hero-image i.main-icon { font-size: 9.5rem; color: #2563eb; opacity: 0.9; }
+    .mini-proof { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 14px 22px; color: #475569; font-weight: 600; }
+    .mini-proof i, .feature-list i, .check-list i { color: #10b981; }
+    .section-intro { max-width: 820px; margin: 0 auto 34px; text-align: center; font-size: 1.12rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px; margin-top: 34px; }
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 32px 24px;
+      box-shadow: 0 15px 30px -14px rgba(15,23,42,0.1);
+      border: 1px solid #eef2f6;
+      transition: all 0.25s;
+    }
+    .card:hover { transform: translateY(-7px); box-shadow: 0 25px 35px -16px rgba(37,99,235,0.18); border-color: #bfdbfe; }
+    .card-icon { font-size: 2.5rem; color: #2563eb; margin-bottom: 18px; }
+    .soft-bg { background: #fafcff; }
+    .blue-bg { background: #0b2b4a; color: white; }
+    .blue-bg h2, .blue-bg h3, .blue-bg p { color: white; }
+    .blue-bg p { opacity: 0.9; }
+    .two-columns { display: flex; gap: 40px; flex-wrap: wrap; align-items: stretch; }
+    .col { flex: 1 1 320px; }
+    .legal-box, .info-box {
+      background: #f9fafb;
+      border-radius: 24px;
+      padding: 30px;
+      border-left: 6px solid #2563eb;
+    }
+    .info-box { border-left-color: #10b981; }
+    .check-list, .feature-list { list-style: none; margin: 20px 0; }
+    .check-list li, .feature-list li { padding: 8px 0; display: flex; align-items: flex-start; gap: 10px; color: #334155; }
+    .comparison-table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 22px; background: white; box-shadow: 0 16px 32px -18px rgba(15,23,42,0.16); }
+    .comparison-table th, .comparison-table td { padding: 16px; border-bottom: 1px solid #e2e8f0; text-align: left; color: #334155; }
+    .comparison-table th { background: #eff6ff; color: #0b2b4a; }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .quote-card { background: #0b2b4a; color: white; padding: 30px; border-radius: 32px; }
+    .quote-card p { color: white; opacity: 0.95; }
+    .price { font-size: 2.45rem; font-weight: 800; margin: 20px 0 8px; color: #0b2b4a; }
+    .price small { font-size: 1rem; font-weight: 500; color: #64748b; }
+    .renewal { font-weight: 600; color: #334155; background: #f8fafc; padding: 7px 13px; border-radius: 40px; display: inline-block; margin: 10px 0 18px; }
+    .testimonial { background: #f8fafc; padding: 24px; border-radius: 24px; font-style: italic; border: 1px solid #e2e8f0; }
+    .testimonial i { color: #fbbf24; }
+    .cta-band { background: linear-gradient(135deg, #2563eb, #0b2b4a); color: white; border-radius: 34px; padding: 42px; display: flex; gap: 28px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+    .cta-band h2, .cta-band p { color: white; }
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 24px;
+      background: #25D366;
+      color: white;
+      font-weight: 700;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+      animation: pulse 1.5s infinite;
+    }
+    .whatsapp-btn i { margin-right: 8px; }
+    .whatsapp-btn:hover { transform: scale(1.05); color: white; }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+    footer { background: #0b2b4a; color: #e2e8f0; padding: 44px 0; }
+    footer a { color: #bfdbfe; text-decoration: none; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px,1fr)); gap: 30px; }
+    hr { border: none; border-top: 1px solid #e2e8f0; margin: 30px 0; }
+    @media (max-width: 900px) {
+      .nav-bar { position: relative; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: white; flex-direction: column; gap: 1.2rem; padding: 20px; border-top: 1px solid #eef2f6; box-shadow: 0 10px 20px rgba(0,0,0,0.05); z-index: 100; }
+      .nav-links.active { display: flex; }
+      .menu-toggle { display: block; }
+      header .btn-outline { display: none; }
+      .hero { padding-top: 35px; }
+      .hero-image i.main-icon { font-size: 7rem; }
+      .comparison-table { font-size: 0.92rem; }
+      .comparison-table th, .comparison-table td { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav-bar">
+    <div class="logo">SitoWeb<span>.info</span></div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Apri menu"><i class="fas fa-bars"></i></button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#guida">Guida</a>
+      <a href="#ai">Siti e AI</a>
+      <a href="#scelta">Quale sito scegliere</a>
+      <a href="#legale">GDPR & sicurezza</a>
+      <a href="blog.html">Blog</a>
+      <a href="#pacchetti">Pacchetti</a>
+      <a href="#contatti">Contatti</a>
+    </nav>
+    <a href="#contatti" class="btn-outline">Consulenza gratuita</a>
+  </div>
+</header>
+
+<main>
+  <section style="padding-top: 20px; padding-left: 15px; padding-right: 15px;">
+    <div class="container hero">
+      <div class="hero-content">
+        <span class="badge"><i class="fas fa-circle-info"></i> Guida semplice + realizzazione professionale</span>
+        <h1>Il sito web giusto, <span class="hero-highlight">spiegato semplice</span></h1>
+        <p class="hero-sub">SitoWeb.info ti aiuta a capire quale sito serve davvero alla tua attività: statico, WordPress, e-commerce o landing page. Prima informazione chiara, poi una soluzione concreta, sicura e pronta per lavorare anche nell'era dell'intelligenza artificiale.</p>
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="#guida" class="btn-primary"><i class="fas fa-map-signs"></i> Capisci cosa ti serve</a>
+          <a href="blog.html" class="btn-outline">Leggi il blog <i class="fas fa-book-open"></i></a>
+          <a href="#contatti" class="btn-outline">Parlane con me <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="mini-proof">
+          <span><i class="fas fa-check-circle"></i> GDPR e sicurezza</span>
+          <span><i class="fas fa-check-circle"></i> SEO e indicizzazione</span>
+          <span><i class="fas fa-check-circle"></i> Struttura leggibile anche dagli strumenti AI</span>
+        </div>
+      </div>
+      <div class="hero-image">
+        <i class="fas fa-globe main-icon"></i>
+        <i class="fab fa-wordpress" style="font-size: 4rem; margin-left: 10px; color:#2563eb;"></i>
+        <i class="fas fa-code" style="font-size: 4rem; margin-left: 10px; color:#2563eb;"></i>
+        <p style="margin-top: 20px; font-weight: 700; color:#0b2b4a;">Consulenza, sviluppo, hosting e manutenzione</p>
+        <p style="margin-top: 6px;">Un unico referente per tutto il progetto.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="guida" class="soft-bg">
+    <div class="container">
+      <h2 style="text-align:center;">Prima capisci il sito che ti serve.<br>Poi lo realizzi nel modo giusto.</h2>
+      <p class="section-intro">Un sito web non è solo una pagina online: è la fonte ufficiale della tua attività, il punto in cui clienti, motori di ricerca e nuovi assistenti AI possono capire chi sei, cosa fai, dove lavori e come contattarti.</p>
+      <div class="grid-4">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-store"></i></div>
+          <h3>Sito vetrina</h3>
+          <p>Ideale per professionisti, artigiani, consulenti e piccole attività che vogliono presentarsi bene, farsi trovare e ricevere contatti.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fab fa-wordpress"></i></div>
+          <h3>WordPress</h3>
+          <p>Perfetto se vuoi aggiornare contenuti, pubblicare articoli, gestire pagine, integrare funzioni e far crescere il sito nel tempo.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+          <h3>Landing page</h3>
+          <p>Una pagina mirata per campagne pubblicitarie, promozioni, raccolta contatti o lancio di un servizio specifico.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-cart-shopping"></i></div>
+          <h3>E-commerce</h3>
+          <p>Per vendere online con prodotti, pagamenti, spedizioni, privacy, termini, resi e una struttura pensata per convertire.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ai">
+    <div class="container">
+      <div class="two-columns" style="align-items:center;">
+        <div class="col">
+          <span class="badge"><i class="fas fa-robot"></i> Nuova visibilità digitale</span>
+          <h2>Con l'AI, avere un sito chiaro serve ancora di più</h2>
+          <p style="font-size:1.12rem; margin-bottom: 18px;">Molti pensano che con l'intelligenza artificiale i siti web diventeranno meno importanti. In realtà succede il contrario: gli strumenti AI hanno bisogno di fonti affidabili, ordinate e indicizzabili da cui recuperare informazioni.</p>
+          <p>Quando una persona chiede a un motore di ricerca o a un assistente AI un professionista, un servizio o un'azienda nella propria zona, un sito ben strutturato aumenta le possibilità di essere capiti, citati, consigliati o raggiunti direttamente.</p>
+          <ul class="check-list">
+            <li><i class="fas fa-check-circle"></i> Il sito diventa la fonte ufficiale sulla tua attività.</li>
+            <li><i class="fas fa-check-circle"></i> Le pagine spiegano servizi, zona, prezzi, contatti e competenze.</li>
+            <li><i class="fas fa-check-circle"></i> I contenuti ben scritti aiutano Google e strumenti AI a interpretarti meglio.</li>
+            <li><i class="fas fa-check-circle"></i> In alcuni casi l'utente può essere indirizzato direttamente verso il tuo sito o i tuoi contatti.</li>
+          </ul>
+          <p><strong>In breve:</strong> se non hai un sito chiaro, l'AI ha meno elementi per capirti e consigliarti.</p>
+        </div>
+        <div class="col info-box">
+          <i class="fas fa-magnifying-glass-chart" style="font-size:2.2rem; color:#10b981; margin-bottom:16px;"></i>
+          <h3>Domande che i clienti fanno già online</h3>
+          <p style="margin-bottom: 14px;">Un potenziale cliente potrebbe chiedere:</p>
+          <ul class="check-list">
+            <li><i class="fas fa-comment-dots"></i> “Trova un consulente informatico vicino a me”</li>
+            <li><i class="fas fa-comment-dots"></i> “Mi serve qualcuno per creare un sito WordPress sicuro”</li>
+            <li><i class="fas fa-comment-dots"></i> “Quanto costa un sito web professionale?”</li>
+            <li><i class="fas fa-comment-dots"></i> “Quale professionista può aiutarmi con sito, GDPR e manutenzione?”</li>
+          </ul>
+          <p>Un sito leggibile, aggiornato e coerente aiuta a diventare una risposta credibile a queste ricerche.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="scelta" class="soft-bg">
+    <div class="container">
+      <h2 style="text-align:center;">Meglio sito statico o WordPress?</h2>
+      <p class="section-intro">La scelta giusta dipende da quanto vuoi aggiornare il sito, dalle funzioni che ti servono e dal livello di autonomia che desideri.</p>
+      <div style="overflow-x:auto;">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Esigenza</th>
+              <th>Sito statico</th>
+              <th>WordPress</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Massima velocità e stabilità</td><td>Ottimo</td><td>Buono</td></tr>
+            <tr><td>Poche modifiche nel tempo</td><td>Ideale</td><td>Adatto</td></tr>
+            <tr><td>Blog, news o contenuti frequenti</td><td>Limitato</td><td>Ideale</td></tr>
+            <tr><td>Gestione autonoma dei contenuti</td><td>Limitata</td><td>Completa</td></tr>
+            <tr><td>Funzioni avanzate e plugin</td><td>Limitate</td><td>Molto flessibile</td></tr>
+            <tr><td>Manutenzione tecnica</td><td>Minima</td><td>Necessaria</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="text-align:center; margin-top:28px;"><strong>Non sai quale scegliere?</strong> Ti aiuto a capirlo in modo semplice, senza venderti funzioni inutili.</p>
+    </div>
+  </section>
+
+  <section id="costi">
+    <div class="container">
+      <div class="two-columns" style="align-items:center;">
+        <div class="col">
+          <span class="badge"><i class="fas fa-euro-sign"></i> Prezzi chiari</span>
+          <h2>Quanto costa davvero un sito web?</h2>
+          <p style="font-size:1.1rem; margin-bottom: 18px;">Il costo di un sito non dipende solo dalla grafica. Contano struttura, numero di pagine, testi, funzionalità, gestione autonoma, moduli, blog, e-commerce, GDPR, sicurezza, hosting, manutenzione e assistenza.</p>
+          <p>Un sito molto economico può sembrare conveniente, ma spesso non include backup, aggiornamenti, privacy, sicurezza, supporto o una vera strategia. Il punto non è solo “mettere online qualcosa”, ma creare uno strumento affidabile che lavori per la tua attività.</p>
+        </div>
+        <div class="col legal-box">
+          <h3>Cosa dovrebbe includere un sito fatto bene</h3>
+          <ul class="check-list">
+            <li><i class="fas fa-check-circle"></i> Dominio, hosting e certificato SSL</li>
+            <li><i class="fas fa-check-circle"></i> Struttura SEO base e pagine indicizzabili</li>
+            <li><i class="fas fa-check-circle"></i> Privacy policy, cookie policy e banner consensi</li>
+            <li><i class="fas fa-check-circle"></i> Backup, sicurezza e aggiornamenti</li>
+            <li><i class="fas fa-check-circle"></i> Contatti chiari e call to action efficaci</li>
+            <li><i class="fas fa-check-circle"></i> Formazione minima per sapere come gestirlo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="legale" class="soft-bg">
+    <div class="container">
+      <div class="two-columns">
+        <div class="col legal-box">
+          <i class="fas fa-balance-scale" style="font-size: 2rem; color: #2563eb; margin-bottom: 15px;"></i>
+          <h3>GDPR, cookie e pagine legali</h3>
+          <p>Ogni sito deve rispettare normative precise: informativa privacy, cookie policy, termini quando necessari, consenso esplicito e gestione corretta degli strumenti di tracciamento.</p>
+          <ul class="check-list">
+            <li><i class="fas fa-check-circle"></i> Banner cookie e blocco preventivo</li>
+            <li><i class="fas fa-check-circle"></i> Privacy policy e cookie policy</li>
+            <li><i class="fas fa-check-circle"></i> Configurazione consensi per Analytics, Meta e strumenti marketing</li>
+            <li><i class="fas fa-check-circle"></i> Supporto su richieste utenti e diritti dell'interessato</li>
+          </ul>
+        </div>
+        <div class="col">
+          <span class="badge"><i class="fas fa-shield-virus"></i> Zero pensieri</span>
+          <h2>Sicurezza, manutenzione e continuità</h2>
+          <p style="font-size:1.1rem;">Molti pensano che una volta pubblicato il sito il lavoro sia finito. In realtà un sito va mantenuto: aggiornamenti, backup, monitoraggio, sicurezza, rinnovi e piccole modifiche fanno la differenza tra un sito stabile e un problema futuro.</p>
+          <ul class="check-list">
+            <li><i class="fas fa-database"></i> Backup automatici</li>
+            <li><i class="fas fa-sync-alt"></i> Aggiornamenti core, plugin e temi per WordPress</li>
+            <li><i class="fas fa-fire"></i> Protezione anti-brute force e malware</li>
+            <li><i class="fas fa-user-shield"></i> Assistenza post-consegna inclusa nei pacchetti</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="errori">
+    <div class="container">
+      <h2 style="text-align:center;">Errori comuni da evitare</h2>
+      <p class="section-intro">Una scelta sbagliata all'inizio può costare più del sito stesso. Ecco cosa conviene evitare.</p>
+      <div class="grid-3">
+        <div class="card"><div class="card-icon"><i class="fas fa-tag"></i></div><h3>Scegliere solo in base al prezzo</h3><p>Un sito senza manutenzione, sicurezza o GDPR può sembrare economico, ma diventare fragile o incompleto.</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-plug-circle-exclamation"></i></div><h3>Installare troppi plugin</h3><p>Più plugin non significa più qualità: spesso significa più lentezza, conflitti e rischi di sicurezza.</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-mobile-screen"></i></div><h3>Trascurare mobile e velocità</h3><p>Gran parte degli utenti visita da smartphone. Un sito lento o scomodo fa perdere contatti.</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-file-shield"></i></div><h3>Dimenticare GDPR e cookie</h3><p>Privacy, cookie e consensi non sono dettagli estetici: vanno progettati correttamente.</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-magnifying-glass"></i></div><h3>Non pensare a SEO e contenuti</h3><p>Un sito bello ma vuoto o confuso non aiuta Google, gli utenti né gli strumenti AI a capirti.</p></div>
+        <div class="card"><div class="card-icon"><i class="fas fa-life-ring"></i></div><h3>Non sapere chi lo gestisce dopo</h3><p>Hosting, rinnovi, modifiche e problemi tecnici devono avere un referente chiaro.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blue-bg">
+    <div class="container">
+      <div class="cta-band">
+        <div style="max-width:760px;">
+          <h2>Hai già capito cosa ti serve? Ora possiamo realizzarlo.</h2>
+          <p>Dopo la parte informativa arriva la parte pratica: analisi, scelta della soluzione, realizzazione, pubblicazione e manutenzione. Con un unico referente e costi chiari.</p>
+        </div>
+        <a href="#pacchetti" class="btn-light"><i class="fas fa-cube"></i> Vedi le soluzioni</a>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section id="blog" class="soft-bg">
+    <div class="container">
+      <span class="badge"><i class="fas fa-book-open"></i> Approfondimenti</span>
+      <h2 style="text-align:center;">Guide pratiche per scegliere meglio</h2>
+      <p class="section-intro">Articoli pensati per rispondere alle domande più frequenti prima di creare un sito: costi, sicurezza, soluzioni gratuite, SEO, autorevolezza e visibilità anche nell'era dell'intelligenza artificiale.</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-euro-sign"></i></div>
+          <h3>Quanto costa un sito web?</h3>
+          <p>Capisci cosa incide davvero sul prezzo e quali costi nascosti valutare prima di scegliere.</p>
+          <a href="quanto-costa-un-sito-web.html" class="btn-outline" style="margin-top:18px;">Leggi l'articolo</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-shield-halved"></i></div>
+          <h3>Quando un sito è sicuro?</h3>
+          <p>SSL, backup, aggiornamenti, WordPress, GDPR e manutenzione: cosa controllare davvero.</p>
+          <a href="quando-un-sito-web-e-sicuro.html" class="btn-outline" style="margin-top:18px;">Leggi l'articolo</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-gift"></i></div>
+          <h3>Come avere un sito gratis?</h3>
+          <p>WordPress.com, Altervista, Blogger e ForumFree: quando bastano e quando penalizzano un'azienda.</p>
+          <a href="come-avere-un-sito-web-gratis.html" class="btn-outline" style="margin-top:18px;">Leggi l'articolo</a>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:34px;"><a href="blog.html" class="btn-primary"><i class="fas fa-book-open"></i> Leggi il blog</a></p>
+    </div>
+  </section>
+
+  <section id="pacchetti" class="soft-bg">
+    <div class="container">
+      <h2 style="text-align: center;">Soluzioni su misura,<br> con chiarezza sui costi</h2>
+      <p class="section-intro">Una tantum per progettazione, installazione, realizzazione e avvio. Rinnovo annuale per hosting, manutenzione, sicurezza, aggiornamenti e continuità tecnica. Dominio incluso.</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-file-code"></i></div>
+          <h3>Sito Statico</h3>
+          <p>HTML5, CSS3, JavaScript: velocità pura, ideale per landing page o vetrina essenziale.</p>
+          <div class="price">€790 <small>una tantum</small></div>
+          <div class="renewal"><i class="fas fa-rotate"></i> Rinnovo: €120/anno</div>
+          <ul class="feature-list">
+            <li><i class="fas fa-check"></i> Fino a 5 pagine</li>
+            <li><i class="fas fa-check"></i> Design responsive premium</li>
+            <li><i class="fas fa-check"></i> Hosting veloce incluso</li>
+            <li><i class="fas fa-check"></i> SSL e GDPR base</li>
+            <li><i class="fas fa-check"></i> Sezione contatti e modulo</li>
+            <li><i class="fas fa-check"></i> Ottimizzazione SEO on-page</li>
+            <li><i class="fas fa-check"></i> Dominio incluso</li>
+          </ul>
+          <a href="#contatti" class="btn-outline" style="display:block; margin-top:20px;">Scegli Statico</a>
+        </div>
+        <div class="card" style="border: 2px solid #2563eb; box-shadow: 0 20px 30px -10px rgba(37,99,235,0.15);">
+          <div class="card-icon"><i class="fab fa-wordpress"></i></div>
+          <h3>WordPress Pro</h3>
+          <p>Il più richiesto: gestione autonoma dei contenuti, design personalizzato e funzionalità avanzate.</p>
+          <div class="price">€1.990 <small>una tantum</small></div>
+          <div class="renewal"><i class="fas fa-rotate"></i> Rinnovo: €420/anno</div>
+          <ul class="feature-list">
+            <li><i class="fas fa-check"></i> Tema premium su misura</li>
+            <li><i class="fas fa-check"></i> Fino a 15 pagine + blog</li>
+            <li><i class="fas fa-check"></i> Form di contatto</li>
+            <li><i class="fas fa-check"></i> GDPR avanzato + cookie banner</li>
+            <li><i class="fas fa-check"></i> Backup e aggiornamenti automatici</li>
+            <li><i class="fas fa-check"></i> SEO e indicizzazione rapida</li>
+            <li><i class="fas fa-check"></i> Integrazione social e Google Analytics</li>
+          </ul>
+          <a href="#contatti" class="btn-primary" style="display:block; margin-top:20px;">Richiedi WordPress Pro</a>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-shopping-cart"></i></div>
+          <h3>E-commerce WordPress</h3>
+          <p>WooCommerce o Shopify? Ti guido alla scelta migliore per un negozio online completo e sicuro.</p>
+          <div class="price">€3.490 <small>una tantum</small></div>
+          <div class="renewal"><i class="fas fa-rotate"></i> Rinnovo: €750/anno</div>
+          <ul class="feature-list">
+            <li><i class="fas fa-check"></i> Tutto come in WordPress Pro</li>
+            <li><i class="fas fa-check"></i> Fino a 50 prodotti, scalabile</li>
+            <li><i class="fas fa-check"></i> Pagamenti Stripe/PayPal</li>
+            <li><i class="fas fa-check"></i> Spedizioni, IVA e integrazioni</li>
+            <li><i class="fas fa-check"></i> GDPR e-commerce: termini, recesso, privacy</li>
+            <li><i class="fas fa-check"></i> Ottimizzazione conversioni e CRO</li>
+            <li><i class="fas fa-check"></i> Sicurezza rafforzata</li>
+            <li><i class="fas fa-check"></i> Supporto prioritario</li>
+          </ul>
+          <a href="#contatti" class="btn-outline" style="display:block; margin-top:20px;">Parliamone</a>
+        </div>
+      </div>
+      <p style="text-align:center; margin-top:30px; color:#475569;"><i class="fas fa-info-circle"></i> Tutti i pacchetti includono dominio, certificato SSL, email professionale, configurazione tecnica e assistenza. I prezzi sono imposte incluse. Se i pacchetti non bastano, posso preparare un preventivo personalizzato.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="two-columns" style="align-items:center;">
+        <div class="col">
+          <h2>Non solo un sito:<br>un partner per il digitale</h2>
+          <p>La mia missione è rendere la tecnologia accessibile, utile e sicura. Ogni progetto parte da un'analisi delle tue esigenze e si conclude solo quando il sito è pubblicato, funzionante e comprensibile anche per te.</p>
+          <div style="margin-top:30px;">
+            <div class="testimonial">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <p>"Molto disponibile, attento ai bisogni dell'azienda e delle persone"</p>
+              <strong>— Roberta Belluschi - RR</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col" style="background:#eef2ff; padding:36px; border-radius:36px;">
+          <h3>Perché scegliere SitoWeb.info</h3>
+          <ul class="check-list">
+            <li><i class="fas fa-user-tie"></i> Consulente unico: parli sempre con me</li>
+            <li><i class="fas fa-file-contract"></i> Contratto chiaro, nessuna sorpresa</li>
+            <li><i class="fas fa-clock"></i> Consegna rapida, in base alla complessità</li>
+            <li><i class="fas fa-headset"></i> Assistenza post-consegna inclusa</li>
+            <li><i class="fas fa-shield-halved"></i> Attenzione a sicurezza, GDPR e manutenzione</li>
+          </ul>
+          <hr>
+          <p><strong>Hai già un sito?</strong> Offro anche revisione sicurezza e adeguamento GDPR a partire da €290.</p>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:44px;">
+        <a href="https://www.gabrieleviola.it" class="btn-outline">Scopri di più su gabrieleviola.it</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contatti" style="background:#0b2b4a; color:white; border-radius:0;">
+    <div class="container">
+      <div style="display:flex; flex-wrap:wrap; gap:40px;">
+        <div style="flex:1; min-width:250px;">
+          <h2 style="color:white;">Parliamo del tuo progetto</h2>
+          <p style="opacity:0.9; color:white;">Non sai ancora che sito scegliere? Va bene così: partiamo proprio da lì. Scrivimi e ti aiuto a capire la soluzione più adatta.</p>
+          <div style="margin-top:40px;">
+            <p><a style="color:#FFFFFF" href="mailto:business@gabrieleviola.it"><i class="fas fa-envelope"></i> business@gabrieleviola.it</a></p>
+            <p><a style="color:#FFFFFF" href="tel:+393703672344"><i class="fas fa-phone-alt"></i> +39 3703672344</a></p>
+            <p><a style="color:#FFFFFF" href="https://api.whatsapp.com/send/?phone=393703672344&text=Buongiorno,+avrei+bisogno+di+capire+che+sito+web+serve+alla+mia+attivit%C3%A0"><i class="fab fa-whatsapp"></i> WhatsApp Business</a></p>
+            <p style="margin-top:30px; color:white;"><i class="fas fa-map-pin"></i> Opero in tutta Italia — anche da remoto</p>
+          </div>
+        </div>
+        <div style="flex:1.2; min-width:280px;">
+          <div style="background:white; padding:32px; border-radius:32px; color:#0b2b4a;">
+            <h3>Richiedi una consulenza gratuita</h3>
+            <p>Mandami due righe sulla tua attività: ti aiuto a capire se ti serve un sito statico, WordPress, una landing o un e-commerce.</p>
+            <a href="https://api.whatsapp.com/send/?phone=393703672344&text=Buongiorno,+vorrei+una+consulenza+per+capire+che+sito+web+serve+alla+mia+attivit%C3%A0" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Scrivimi su WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="color:white;">SitoWeb<span style="color:#93c5fd;">.info</span></div>
+        <p style="margin-top:16px; color:#e2e8f0;">Guida e realizzazione siti web professionali, WordPress, GDPR, sicurezza e visibilità nell'era dell'AI.</p>
+        <p style="color:#e2e8f0;">© 2026 SitoWeb.info – P.IVA 02640890220</p>
+      </div>
+      <div>
+        <h4>Guida</h4>
+        <p><a href="#guida">Che sito ti serve</a></p>
+        <p><a href="#ai">Siti web e AI</a></p>
+        <p><a href="#scelta">Statico o WordPress</a></p>
+        <p><a href="#costi">Costi reali</a></p>
+      </div>
+      <div>
+        <h4>Servizi</h4>
+        <p><a href="#legale">GDPR e sicurezza</a></p>
+        <p><a href="#pacchetti">Pacchetti e prezzi</a></p>
+        <p><a href="blog.html">Blog e guide</a></p>
+        <p><a href="#contatti">Consulenza gratuita</a></p>
+      </div>
+      <div>
+        <h4>Legale</h4>
+        <p><a href="privacy-policy.html">Privacy e Cookie Policy</a></p>
+        <p><a href="https://www.iubenda.com/termini-e-condizioni/26348951">Termini e condizioni su gabrieleviola.it</a></p>
+        <h4 style="margin-top:18px;">Seguimi</h4>
+        <p><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/gabriele-viola/"> LinkedIn</a></p>
+      </div>
+    </div>
+    <hr style="border-color:#334155;">
+    <p style="text-align:center; font-size:0.9rem; color:#e2e8f0;"><a href="https://www.gabrieleviola.it/">SitoWeb.info — Il sito web giusto, spiegato semplice. Di gabrieleviola.it</a></p>
+  </div>
+</footer>
+
+<script>
+  const toggleBtn = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  toggleBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
+</script>
+</body>
+</html>
