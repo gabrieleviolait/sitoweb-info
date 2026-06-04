@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Come creare un sito web: guida semplice per partire bene – SitoWeb.info</title>
+  <meta name="description" content="Come creare un sito web partendo dagli obiettivi giusti: dominio, hosting, contenuti, piattaforma, sicurezza, SEO e manutenzione.">
+  <link rel="canonical" href="https://sitoweb.info/come-creare-un-sito-web.html">
+  <meta property="og:title" content="Come creare un sito web: guida semplice per partire bene – SitoWeb.info">
+  <meta property="og:description" content="Come creare un sito web partendo dagli obiettivi giusti: dominio, hosting, contenuti, piattaforma, sicurezza, SEO e manutenzione.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sitoweb.info/come-creare-un-sito-web.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: #ffffff; color: #1e1e2f; line-height: 1.6; }
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+header { padding: 20px 0; border-bottom: 1px solid #eef2f6; position: sticky; top: 0; z-index: 50; backdrop-filter: blur(4px); background: rgba(255,255,255,0.88); }
+.nav-bar { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+.logo { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; color: #0b2b4a; text-decoration:none; }
+.logo span { color: #2563eb; }
+.nav-links { display: flex; align-items: center; gap: 1.6rem; font-weight: 500; }
+.nav-links a { text-decoration: none; color: #1e293b; transition: color 0.2s; }
+.nav-links a:hover { color: #2563eb; }
+.menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: #0b2b4a; }
+.btn-outline, .btn-primary, .btn-light { padding: 12px 24px; border-radius: 60px; font-weight: 700; text-decoration: none; display: inline-block; transition: all 0.2s ease; border: 1.5px solid #2563eb; text-align: center; }
+.btn-outline { background: transparent; color: #2563eb; }
+.btn-outline:hover { background: #2563eb; color: #fff; transform: translateY(-2px); }
+.btn-primary { background: #2563eb; color: white; box-shadow: 0 12px 18px -8px rgba(37,99,235,0.25); }
+.btn-primary:hover { background: #1d4ed8; color: white; transform: translateY(-3px); box-shadow: 0 20px 25px -8px rgba(37,99,235,0.32); }
+.btn-light { background: #fff; color: #0b2b4a; border-color: #fff; }
+.btn-light:hover { transform: translateY(-2px); box-shadow: 0 14px 24px -12px rgba(0,0,0,0.2); }
+section { padding: 82px 0; }
+h1, h2, h3 { color: #0b2b4a; letter-spacing: -0.025em; line-height: 1.18; }
+h1 { font-size: clamp(2.35rem, 5vw, 4.2rem); font-weight: 800; margin-bottom: 24px; }
+h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 800; margin: 40px 0 16px; }
+h3 { font-size: 1.45rem; font-weight: 750; margin: 28px 0 12px; }
+p { color: #475569; }
+.hero { padding: 56px 0 70px; display: flex; align-items: center; flex-wrap: wrap; gap: 46px; }
+.hero-content { flex: 1 1 520px; }
+.hero-sub { font-size: 1.22rem; color: #475569; margin-bottom: 30px; max-width: 790px; }
+.hero-highlight { color: #2563eb; border-bottom: 4px solid #93c5fd; }
+.badge { background: #dbeafe; color: #1e40af; padding: 7px 15px; border-radius: 30px; font-weight: 700; font-size: 0.92rem; display: inline-block; margin-bottom: 20px; }
+.card { background: white; border-radius: 28px; padding: 32px 24px; box-shadow: 0 15px 30px -14px rgba(15,23,42,0.1); border: 1px solid #eef2f6; transition: all 0.25s; }
+.card:hover { transform: translateY(-7px); box-shadow: 0 25px 35px -16px rgba(37,99,235,0.18); border-color: #bfdbfe; }
+.card-icon { font-size: 2.5rem; color: #2563eb; margin-bottom: 18px; }
+.soft-bg { background: #fafcff; }
+.blue-bg { background: #0b2b4a; color: white; }
+.blue-bg h2, .blue-bg h3, .blue-bg p { color: white; }
+.blue-bg p { opacity: 0.9; }
+.blog-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:26px; margin-top:34px; }
+.blog-grid .card { display:flex; flex-direction:column; }
+.blog-grid .card p { flex:1; }
+.blog-grid .card a { color:#2563eb; font-weight:700; text-decoration:none; }
+.breadcrumb { font-size:0.95rem; margin-bottom:18px; color:#64748b; }
+.breadcrumb a { color:#2563eb; text-decoration:none; font-weight:700; }
+.article-wrap { max-width: 900px; margin: 0 auto; }
+.article-meta { color:#64748b; font-weight:600; margin-bottom:18px; }
+.article-content { background:white; border:1px solid #eef2f6; border-radius:32px; padding: clamp(26px, 4vw, 46px); box-shadow: 0 20px 44px -28px rgba(15,23,42,0.18); }
+.article-content p { margin: 14px 0; font-size:1.08rem; }
+.article-content ul, .article-content ol { margin: 16px 0 20px 24px; color:#334155; }
+.article-content li { margin: 8px 0; }
+.article-content strong { color:#0b2b4a; }
+.article-content a { color:#2563eb; font-weight:700; }
+.cta-box { margin-top:36px; background:#0b2b4a; color:#fff; padding:32px; border-radius:28px; }
+.cta-box h2, .cta-box p { color:#fff; }
+.cta-box h2 { margin-top:0; }
+footer { background: #0b2b4a; color: #e2e8f0; padding: 44px 0; }
+footer a { color: #bfdbfe; text-decoration: none; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px,1fr)); gap: 30px; }
+footer p { color:#dbeafe; margin-top:10px; }
+hr { border: none; border-top: 1px solid #e2e8f0; margin: 30px 0; }
+@media (max-width: 768px) { .nav-bar { position:relative; } .nav-links { display:none; position:absolute; top:100%; left:0; width:100%; background:white; flex-direction:column; gap:1.2rem; padding:20px; border-top:1px solid #eef2f6; box-shadow:0 10px 20px rgba(0,0,0,0.05); z-index:100; } .nav-links.active { display:flex; } .menu-toggle { display:block; } section { padding: 62px 0; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-bar">
+    <a class="logo" href="index.html">SitoWeb<span>.info</span></a>
+    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html#cos-e">Cos'è un sito</a>
+      <a href="index.html#ai">Siti e AI</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#pacchetti">Pacchetti</a>
+      <a href="index.html#contatti">Contatti</a>
+    </div>
+    <a href="index.html#contatti" class="btn-outline">Richiedi preventivo</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="soft-bg">
+    <div class="container article-wrap">
+      <div class="breadcrumb"><a href="index.html">Home</a> / <a href="blog.html">Blog</a> / Come creare un sito web: guida semplice per partire bene</div>
+      <span class="badge"><i class="fas fa-rocket"></i> Approfondimento</span>
+      <h1>Come creare un sito web: guida semplice per partire bene</h1>
+      <p class="hero-sub">Come creare un sito web partendo dagli obiettivi giusti: dominio, hosting, contenuti, piattaforma, sicurezza, SEO e manutenzione.</p>
+      <p class="article-meta">Pubblicato: 2026-06-04 · Aggiornato: 2026-06-04</p>
+      <article class="article-content">
+        <h2>Da dove si parte davvero</h2>
+<p>Quando una persona cerca <strong>come creare un sito web</strong>, spesso pensa subito allo strumento: WordPress, HTML, un costruttore visuale, un servizio gratuito o una piattaforma pronta. In realtà il primo passaggio non è tecnico, ma strategico.</p>
+<p>Prima di scegliere come costruire il sito bisogna capire <strong>a cosa deve servire</strong>. Un sito per un professionista non ha gli stessi obiettivi di un e-commerce. Una landing page per una campagna pubblicitaria non richiede la stessa struttura di un sito aziendale con blog, servizi, recensioni e moduli di contatto.</p>
+<p>La domanda giusta quindi non è solo “come creo un sito?”, ma <strong>che risultato deve portare il sito?</strong></p>
+<h2>I passaggi principali per creare un sito web</h2>
+<p>Un sito web professionale nasce quasi sempre da questi passaggi:</p>
+<ol><li>definizione dell&#x27;obiettivo;</li><li>scelta del dominio;</li><li>scelta dell&#x27;hosting;</li><li>progettazione della struttura;</li><li>scrittura dei contenuti;</li><li>realizzazione grafica e tecnica;</li><li>configurazione di sicurezza, privacy e cookie;</li><li>ottimizzazione SEO base;</li><li>pubblicazione;</li><li>manutenzione nel tempo.</li></ol>
+<p>Saltare uno di questi passaggi può sembrare comodo all&#x27;inizio, ma spesso crea problemi dopo: sito lento, pagine confuse, privacy incompleta, assenza di backup, contenuti poco chiari o difficoltà a farsi trovare.</p>
+<h2>Scegliere il dominio</h2>
+<p>Il dominio è l&#x27;indirizzo del sito, per esempio nomesito.it. Per un&#x27;attività professionale conviene scegliere un dominio semplice, leggibile e coerente con il nome dell&#x27;attività.</p>
+<p>Un dominio buono dovrebbe essere:</p>
+<ul><li>facile da ricordare;</li><li>facile da scrivere;</li><li>coerente con il brand;</li><li>senza trattini inutili;</li><li>possibilmente con estensione adatta al mercato, come .it o .com.</li></ul>
+<p>Il dominio non è solo una formalità: comunica affidabilità. Un indirizzo professionale è più credibile di un sottodominio gratuito, soprattutto se il sito serve a vendere servizi o acquisire clienti.</p>
+<h2>Scegliere hosting e piattaforma</h2>
+<p>L&#x27;hosting è lo spazio dove il sito viene pubblicato. La piattaforma è il modo in cui viene costruito e gestito.</p>
+<p>Le soluzioni più comuni sono:</p>
+<ul><li><strong>sito statico</strong>, ideale per siti veloci, semplici e con poche modifiche;</li><li><strong>WordPress</strong>, utile per blog, pagine aggiornabili, contenuti dinamici e maggiore autonomia;</li><li><strong>e-commerce</strong>, quando bisogna vendere online;</li><li><strong>website builder</strong>, comodi per test o progetti semplici, ma non sempre ideali per una presenza aziendale solida.</li></ul>
+<p>La scelta dipende da quanto vuoi aggiornare il sito, da quante pagine ti servono, dal livello di personalizzazione e dal budget.</p>
+<h2>Scrivere contenuti chiari</h2>
+<p>Un errore frequente è pensare che basti una bella grafica. In realtà un sito funziona quando risponde subito alle domande del visitatore:</p>
+<ul><li>chi sei;</li><li>cosa offri;</li><li>dove lavori;</li><li>per chi è pensato il servizio;</li><li>perché dovrebbero fidarsi;</li><li>quanto costa o da cosa dipende il prezzo;</li><li>come contattarti.</li></ul>
+<p>Un sito vago, anche se bello, converte poco. Un sito chiaro, invece, aiuta l&#x27;utente a capire e a decidere.</p>
+<h2>SEO fin dall&#x27;inizio</h2>
+<p>La SEO non dovrebbe essere aggiunta alla fine. Già durante la creazione bisogna pensare a:</p>
+<ul><li>titoli delle pagine;</li><li>meta description;</li><li>URL semplici;</li><li>testi leggibili;</li><li>velocità;</li><li>struttura dei link interni;</li><li>immagini leggere;</li><li>sitemap;</li><li>contenuti utili.</li></ul>
+<p>Questo è importante anche per l&#x27;intelligenza artificiale. I motori di ricerca e gli assistenti AI capiscono meglio un&#x27;attività quando il sito è ordinato, coerente e ricco di informazioni verificabili.</p>
+<h2>Sicurezza, GDPR e manutenzione</h2>
+<p>Creare un sito non significa solo pubblicarlo. Un sito deve restare sicuro e aggiornato.</p>
+<p>Servono almeno:</p>
+<ul><li>certificato SSL;</li><li>backup;</li><li>aggiornamenti;</li><li>protezione da spam e brute force;</li><li>privacy policy;</li><li>cookie policy;</li><li>banner cookie se necessario;</li><li>moduli di contatto configurati correttamente.</li></ul>
+<p>Per questo il costo vero di un sito non è solo la costruzione iniziale. Bisogna considerare anche la gestione nel tempo.</p>
+<h2>Si può creare un sito da soli?</h2>
+<p>Sì, soprattutto se il progetto è personale, sperimentale o molto semplice. Creare un sito da soli può essere utile per imparare.</p>
+<p>Per un&#x27;attività, però, bisogna valutare il tempo, gli errori e l&#x27;immagine che si vuole comunicare. Un sito fatto in fretta può costare poco oggi, ma far perdere opportunità domani.</p>
+<h2>Quando conviene farsi aiutare</h2>
+<p>Conviene affidarsi a un professionista quando:</p>
+<ul><li>il sito deve rappresentare un&#x27;attività;</li><li>vuoi comparire in modo credibile su Google;</li><li>vuoi evitare problemi tecnici o legali;</li><li>vuoi un sito veloce e sicuro;</li><li>vuoi capire quale soluzione scegliere;</li><li>vuoi una persona che ti segua anche dopo la pubblicazione.</li></ul>
+<p>In questi casi il sito non è una spesa isolata, ma uno strumento di lavoro.</p>
+<h2>Conclusione</h2>
+<p>Creare un sito web significa costruire una base digitale stabile per la tua attività. Il punto non è avere “qualcosa online”, ma avere uno spazio chiaro, sicuro e utile, capace di farti trovare e di trasformare i visitatori in contatti.</p>
+<p>Se parti dagli obiettivi, scegli la piattaforma giusta e curi contenuti, sicurezza e SEO, il sito diventa molto più di una vetrina: diventa un canale di fiducia.</p>
+        <div class="cta-box">
+          <h2>Vuoi capire quale soluzione conviene per la tua attività?</h2>
+          <p>Posso aiutarti a scegliere tra sito statico, WordPress, e-commerce o una soluzione più semplice, con costi chiari e senza sorprese.</p>
+          <p style="margin-top:20px;"><a class="btn-light" href="index.html#contatti">Richiedi una consulenza gratuita</a></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": &#x27;Come creare un sito web: guida semplice per partire bene&#x27;,
+  "description": &#x27;Come creare un sito web partendo dagli obiettivi giusti: dominio, hosting, contenuti, piattaforma, sicurezza, SEO e manutenzione.&#x27;,
+  "datePublished": "2026-06-04",
+  "dateModified": "2026-06-04",
+  "author": {"@type": "Person", "name": "Gabriele Viola"},
+  "publisher": {"@type": "Organization", "name": "SitoWeb.info"},
+  "mainEntityOfPage": "https://sitoweb.info/come-creare-un-sito-web.html"
+}
+</script>
+
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="color: white;">SitoWeb<span style="color: #93c5fd;">.info</span></div>
+        <p>Guide semplici e realizzazione siti web professionali, WordPress, GDPR e sicurezza.</p>
+        <p>© 2026 SitoWeb.info – P.IVA 02640890220</p>
+      </div>
+      <div>
+        <h4>Link utili</h4>
+        <p><a href="index.html#cos-e">Cos'è un sito web</a></p>
+        <p><a href="blog.html">Blog e guide</a></p>
+        <p><a href="index.html#pacchetti">Pacchetti e prezzi</a></p>
+      </div>
+      <div>
+        <h4>Legale</h4>
+        <p><a href="privacy-policy.html">Privacy e Cookie Policy</a></p>
+        <p><a href="https://www.iubenda.com/termini-e-condizioni/26348951">Termini e condizioni</a></p>
+      </div>
+      <div>
+        <h4>Contatti</h4>
+        <p><a href="mailto:business@gabrieleviola.it">business@gabrieleviola.it</a></p>
+        <p><a href="https://www.linkedin.com/in/gabriele-viola/">LinkedIn</a></p>
+      </div>
+    </div>
+    <hr style="border-color: #334155;">
+    <p style="text-align: center; font-size: 0.9rem;"><a href="https://www.gabrieleviola.it/">SitoWeb.info — Il sito web giusto, spiegato semplice. Di gabrieleviola.it</a></p>
+  </div>
+</footer>
+<script>
+  const toggleBtn = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (toggleBtn && navLinks) {
+    toggleBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
+    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+  }
+</script>
+
+</body>
+</html>
