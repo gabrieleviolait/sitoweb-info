@@ -19,6 +19,27 @@ FIXED_PAGES = [
     {"loc": "/privacy-policy.html", "priority": "0.3", "changefreq": "yearly", "only_if_exists": True},
 ]
 
+LEGACY_BLOG_ARTICLES = [
+    {
+        "slug": "quanto-costa-un-sito-web",
+        "title": "Quanto costa un sito web?",
+        "excerpt": "Una guida chiara per capire cosa incide davvero sul prezzo: dominio, hosting, grafica, testi, SEO, GDPR, sicurezza, manutenzione e assistenza.",
+        "icon": "fas fa-euro-sign",
+    },
+    {
+        "slug": "quando-un-sito-web-e-sicuro",
+        "title": "Quando un sito web è sicuro?",
+        "excerpt": "SSL, aggiornamenti, backup, protezione WordPress, moduli, password, malware, monitoraggio e gestione responsabile dei dati.",
+        "icon": "fas fa-shield-halved",
+    },
+    {
+        "slug": "come-avere-un-sito-web-gratis",
+        "title": "Come avere un sito web gratis?",
+        "excerpt": "WordPress.com, Altervista, Blogger/Blogspot, ForumFree e alternative: quando vanno bene e quando per un'azienda conviene investire.",
+        "icon": "fas fa-gift",
+    },
+]
+
 COMMON_CSS = r"""
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -271,6 +292,22 @@ def html_page(title: str, description: str, canonical_path: str, main_html: str,
 
 def build_blog(articles: List[Article]) -> None:
     cards = []
+    article_slugs = {a.slug for a in articles}
+
+    # Mantiene anche gli articoli storici creati a mano, che non hanno un file .md in articles/.
+    for a in LEGACY_BLOG_ARTICLES:
+        if a["slug"] in article_slugs:
+            continue
+        if not (ROOT / f"{a['slug']}.html").exists():
+            continue
+        cards.append(f"""
+      <article class="card">
+        <div class="card-icon"><i class="{html.escape(a['icon'])}"></i></div>
+        <h3>{html.escape(a['title'])}</h3>
+        <p>{html.escape(a['excerpt'])}</p>
+        <a href="{html.escape(a['slug'])}.html">Leggi articolo <i class="fas fa-arrow-right"></i></a>
+      </article>""")
+
     for a in articles:
         cards.append(f"""
       <article class="card">
@@ -350,13 +387,29 @@ def build_article_pages(articles: List[Article]) -> None:
 def build_sitemap(articles: List[Article]) -> None:
     today = date.today().isoformat()
     entries = []
+    seen = set()
+
+    def add_entry(loc: str, lastmod: str, changefreq: str, priority: str) -> None:
+        if loc in seen:
+            return
+        seen.add(loc)
+        entries.append((loc, lastmod, changefreq, priority))
+
     for page in FIXED_PAGES:
         loc = page["loc"]
         if page.get("only_if_exists") and not (ROOT / loc.lstrip("/")).exists():
             continue
-        entries.append((loc, today, page["changefreq"], page["priority"]))
+        add_entry(loc, today, page["changefreq"], page["priority"])
     for a in articles:
-        entries.append((f"/{a.slug}.html", a.updated, "monthly", a.priority))
+        add_entry(f"/{a.slug}.html", a.updated, "monthly", a.priority)
+
+    # Aggiunge anche eventuali pagine articolo .html storiche/non generate da .md.
+    skip_names = {"index.html", "blog.html", "privacy-policy.html"}
+    for path in sorted(ROOT.glob("*.html")):
+        if path.name in skip_names:
+            continue
+        add_entry(f"/{path.name}", today, "monthly", "0.7")
+
     urls = []
     for loc, lastmod, changefreq, priority in entries:
         urls.append(f"""
@@ -384,13 +437,11 @@ def main() -> None:
 
     build_article_pages(articles)
 
-    # Per ora NON rigeneriamo blog.html, così non sovrascriviamo il blog già sistemato a mano.
-    # build_blog(articles)
+    build_blog(articles)
 
     build_sitemap(articles)
 
-    print(f"Generati {len(articles)} nuovi articoli e sitemap.xml.")
-    print("Nota: blog.html non è stato modificato automaticamente.")
+    print(f"Generati {len(articles)} articoli, blog.html e sitemap.xml.")
 
 
 if __name__ == "__main__":
