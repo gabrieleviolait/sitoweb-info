@@ -2,21 +2,28 @@
 from __future__ import annotations
 
 import html
+import json
 import re
+import xml.sax.saxutils as xml_escape
 from dataclasses import dataclass
-from datetime import date
+from datetime import date, datetime
+from email.utils import format_datetime
 from pathlib import Path
 from typing import Dict, List, Tuple
 
 SITE_URL = "https://sitoweb.info"
 SITE_NAME = "SitoWeb.info"
+SITE_DESCRIPTION = "Guide semplici e realizzazione siti web professionali, WordPress, GDPR e sicurezza."
+AUTHOR_NAME = "Gabriele Viola"
+AUTHOR_EMAIL = "business@gabrieleviola.it"
+
 ROOT = Path(__file__).resolve().parents[1]
 ARTICLES_DIR = ROOT / "articles"
 
 FIXED_PAGES = [
-    {"loc": "/", "priority": "1.0", "changefreq": "weekly"},
-    {"loc": "/blog.html", "priority": "0.8", "changefreq": "weekly"},
-    {"loc": "/privacy-policy.html", "priority": "0.3", "changefreq": "yearly", "only_if_exists": True},
+    {"loc": "/", "priority": "1.0", "changefreq": "weekly", "file": "index.html"},
+    {"loc": "/blog.html", "priority": "0.8", "changefreq": "weekly", "file": "blog.html"},
+    {"loc": "/privacy-policy.html", "priority": "0.3", "changefreq": "yearly", "file": "privacy-policy.html", "only_if_exists": True},
 ]
 
 LEGACY_BLOG_ARTICLES = [
@@ -52,7 +59,7 @@ header { padding: 20px 0; border-bottom: 1px solid #eef2f6; position: sticky; to
 .nav-links { display: flex; align-items: center; gap: 1.6rem; font-weight: 500; }
 .nav-links a { text-decoration: none; color: #1e293b; transition: color 0.2s; }
 .nav-links a:hover { color: #2563eb; }
-.menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: #0b2b4a; }
+.menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: #0b2b4a; cursor: pointer; }
 .btn-outline, .btn-primary, .btn-light { padding: 12px 24px; border-radius: 60px; font-weight: 700; text-decoration: none; display: inline-block; transition: all 0.2s ease; border: 1.5px solid #2563eb; text-align: center; }
 .btn-outline { background: transparent; color: #2563eb; }
 .btn-outline:hover { background: #2563eb; color: #fff; transform: translateY(-2px); }
@@ -100,14 +107,20 @@ footer a { color: #bfdbfe; text-decoration: none; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px,1fr)); gap: 30px; }
 footer p { color:#dbeafe; margin-top:10px; }
 hr { border: none; border-top: 1px solid #e2e8f0; margin: 30px 0; }
-@media (max-width: 768px) { .nav-bar { position:relative; } .nav-links { display:none; position:absolute; top:100%; left:0; width:100%; background:white; flex-direction:column; gap:1.2rem; padding:20px; border-top:1px solid #eef2f6; box-shadow:0 10px 20px rgba(0,0,0,0.05); z-index:100; } .nav-links.active { display:flex; } .menu-toggle { display:block; } section { padding: 62px 0; } }
+@media (max-width: 768px) {
+  .nav-bar { position:relative; }
+  .nav-links { display:none; position:absolute; top:100%; left:0; width:100%; background:white; flex-direction:column; gap:1.2rem; padding:20px; border-top:1px solid #eef2f6; box-shadow:0 10px 20px rgba(0,0,0,0.05); z-index:100; }
+  .nav-links.active { display:flex; }
+  .menu-toggle { display:block; }
+  section { padding: 62px 0; }
+}
 """
 
 HEADER = """
 <header>
   <div class="container nav-bar">
     <a class="logo" href="index.html">SitoWeb<span>.info</span></a>
-    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Apri menu"><i class="fas fa-bars"></i></button>
     <div class="nav-links" id="navLinks">
       <a href="index.html#cos-e">Cos'è un sito</a>
       <a href="index.html#ai">Siti e AI</a>
@@ -173,12 +186,24 @@ class Article:
     body_html: str
 
 
-def parse_front_matter(text: str) -> Tuple[Dict[str, str], str]:
-    text = text.replace("\r\n", "\n")
+def clean_url(path: str) -> str:
+    if path == "/":
+        return SITE_URL + "/"
+    return SITE_URL.rstrip("/") + "/" + path.lstrip("/")
+
+
+def parse_front_matter(text: str, source: Path) -> Tuple[Dict[str, str], str]:
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
     if not text.startswith("---\n"):
-        raise ValueError("Manca il front matter iniziale delimitato da ---")
-    _, fm, body = text.split("---", 2)
+        raise ValueError(f"{source.name}: manca il front matter iniziale delimitato da ---")
+    parts = text.split("\n---\n", 1)
+    if len(parts) != 2:
+        raise ValueError(f"{source.name}: manca il delimitatore finale --- del front matter")
+
+    fm = parts[0].removeprefix("---\n")
+    body = parts[1]
     meta: Dict[str, str] = {}
+
     for line in fm.strip().splitlines():
         if not line.strip() or line.strip().startswith("#"):
             continue
@@ -190,33 +215,51 @@ def parse_front_matter(text: str) -> Tuple[Dict[str, str], str]:
 
 
 def inline_markdown(s: str) -> str:
-    s = html.escape(s)
-    s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
-    s = re.sub(r"\[(.+?)\]\((https?://[^\s)]+)\)", r'<a href="\2">\1</a>', s)
-    return s
+    escaped = html.escape(s)
+
+    # Link: [testo](https://...)
+    escaped = re.sub(
+        r"\[([^\]]+)\]\((https?://[^\s)]+)\)",
+        r'<a href="\2" rel="noopener noreferrer">\1</a>',
+        escaped,
+    )
+
+    # Grassetto: **testo**
+    escaped = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", escaped)
+
+    # Corsivo semplice: *testo*
+    escaped = re.sub(r"(?<!\*)\*([^*]+)\*(?!\*)", r"<em>\1</em>", escaped)
+
+    return escaped
 
 
 def markdown_to_html(md: str) -> str:
     lines = md.splitlines()
     out: List[str] = []
     i = 0
+
     while i < len(lines):
         line = lines[i].rstrip()
+
         if not line.strip():
             i += 1
             continue
+
         if line.startswith("### "):
             out.append(f"<h3>{inline_markdown(line[4:].strip())}</h3>")
             i += 1
             continue
+
         if line.startswith("## "):
             out.append(f"<h2>{inline_markdown(line[3:].strip())}</h2>")
             i += 1
             continue
+
         if line.startswith("# "):
             out.append(f"<h2>{inline_markdown(line[2:].strip())}</h2>")
             i += 1
             continue
+
         if line.startswith("- "):
             items = []
             while i < len(lines) and lines[i].startswith("- "):
@@ -224,6 +267,7 @@ def markdown_to_html(md: str) -> str:
                 i += 1
             out.append("<ul>" + "".join(items) + "</ul>")
             continue
+
         if re.match(r"^\d+\.\s+", line):
             items = []
             while i < len(lines) and re.match(r"^\d+\.\s+", lines[i]):
@@ -232,20 +276,33 @@ def markdown_to_html(md: str) -> str:
                 i += 1
             out.append("<ol>" + "".join(items) + "</ol>")
             continue
+
         para = [line]
         i += 1
-        while i < len(lines) and lines[i].strip() and not lines[i].startswith(("# ", "## ", "### ", "- ")) and not re.match(r"^\d+\.\s+", lines[i]):
+        while (
+            i < len(lines)
+            and lines[i].strip()
+            and not lines[i].startswith(("# ", "## ", "### ", "- "))
+            and not re.match(r"^\d+\.\s+", lines[i])
+        ):
             para.append(lines[i].strip())
             i += 1
+
         out.append(f"<p>{inline_markdown(' '.join(para))}</p>")
+
     return "\n".join(out)
 
 
 def load_articles() -> List[Article]:
     articles: List[Article] = []
+    ARTICLES_DIR.mkdir(exist_ok=True)
+
     for path in sorted(ARTICLES_DIR.glob("*.md")):
-        meta, body = parse_front_matter(path.read_text(encoding="utf-8"))
-        slug = path.stem
+        meta, body = parse_front_matter(path.read_text(encoding="utf-8"), path)
+
+        slug = meta.get("slug") or path.stem
+        slug = re.sub(r"[^a-z0-9-]+", "-", slug.lower()).strip("-") or path.stem
+
         title = meta.get("title") or slug.replace("-", " ").title()
         description = meta.get("description") or meta.get("excerpt") or title
         excerpt = meta.get("excerpt") or description
@@ -253,19 +310,34 @@ def load_articles() -> List[Article]:
         updated = meta.get("updated") or created
         priority = meta.get("priority") or "0.85"
         icon = meta.get("icon") or "fas fa-file-alt"
-        articles.append(Article(slug, title, description, excerpt, created, updated, priority, icon, markdown_to_html(body)))
+
+        articles.append(
+            Article(
+                slug=slug,
+                title=title,
+                description=description,
+                excerpt=excerpt,
+                date=created,
+                updated=updated,
+                priority=priority,
+                icon=icon,
+                body_html=markdown_to_html(body),
+            )
+        )
+
+    # Nuovi/aggiornati sopra, in ordine cronologico.
     articles.sort(key=lambda a: (a.updated, a.date, a.slug), reverse=True)
     return articles
 
 
-def html_page(title: str, description: str, canonical_path: str, main_html: str, og_type: str = "website") -> str:
-    canonical = SITE_URL + canonical_path
+def html_page(title: str, description: str, canonical_path: str, main_html: str, og_type: str = "website", extra_head: str = "") -> str:
+    canonical = clean_url(canonical_path)
     return f"""<!DOCTYPE html>
 <html lang="it">
 <head>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>{html.escape(title)}</title>
   <meta name="description" content="{html.escape(description)}">
   <link rel="canonical" href="{canonical}">
@@ -273,11 +345,14 @@ def html_page(title: str, description: str, canonical_path: str, main_html: str,
   <meta property="og:description" content="{html.escape(description)}">
   <meta property="og:type" content="{og_type}">
   <meta property="og:url" content="{canonical}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" type="application/rss+xml" title="{SITE_NAME} RSS" href="{SITE_URL}/rss.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>{COMMON_CSS}</style>
+{extra_head}
 </head>
 <body>
 {HEADER}
@@ -290,38 +365,40 @@ def html_page(title: str, description: str, canonical_path: str, main_html: str,
 """
 
 
+def article_card(slug: str, title: str, excerpt: str, icon: str, updated: str | None = None) -> str:
+    meta = f'<p class="article-meta">Aggiornato: {html.escape(updated)}</p>' if updated else ""
+    return f"""
+      <article class="card">
+        <div class="card-icon"><i class="{html.escape(icon)}"></i></div>
+        {meta}
+        <h3>{html.escape(title)}</h3>
+        <p>{html.escape(excerpt)}</p>
+        <a href="{html.escape(slug)}.html">Leggi articolo <i class="fas fa-arrow-right"></i></a>
+      </article>"""
+
+
 def build_blog(articles: List[Article]) -> None:
-    cards = []
+    cards: List[str] = []
     article_slugs = {a.slug for a in articles}
 
-    # Mantiene anche gli articoli storici creati a mano, che non hanno un file .md in articles/.
+    # Prima i contenuti nuovi generati dai Markdown.
+    for a in articles:
+        cards.append(article_card(a.slug, a.title, a.excerpt, a.icon, a.updated))
+
+    # Poi gli articoli storici creati a mano, evitando duplicati.
     for a in LEGACY_BLOG_ARTICLES:
         if a["slug"] in article_slugs:
             continue
         if not (ROOT / f"{a['slug']}.html").exists():
             continue
-        cards.append(f"""
-      <article class="card">
-        <div class="card-icon"><i class="{html.escape(a['icon'])}"></i></div>
-        <h3>{html.escape(a['title'])}</h3>
-        <p>{html.escape(a['excerpt'])}</p>
-        <a href="{html.escape(a['slug'])}.html">Leggi articolo <i class="fas fa-arrow-right"></i></a>
-      </article>""")
+        cards.append(article_card(a["slug"], a["title"], a["excerpt"], a["icon"]))
 
-    for a in articles:
-        cards.append(f"""
-      <article class="card">
-        <div class="card-icon"><i class="{html.escape(a.icon)}"></i></div>
-        <p class="article-meta">Aggiornato: {html.escape(a.updated)}</p>
-        <h3>{html.escape(a.title)}</h3>
-        <p>{html.escape(a.excerpt)}</p>
-        <a href="{html.escape(a.slug)}.html">Leggi articolo <i class="fas fa-arrow-right"></i></a>
-      </article>""")
+    total_articles = len(cards)
     main = f"""
   <section class="soft-bg">
     <div class="container article-wrap">
       <div class="breadcrumb"><a href="index.html">Home</a> / Blog</div>
-      <span class="badge"><i class="fas fa-book-open"></i> Guide pratiche</span>
+      <span class="badge"><i class="fas fa-book-open"></i> {total_articles} guide pratiche</span>
       <h1>Blog SitoWeb.info: guide semplici per scegliere il sito giusto</h1>
       <p class="hero-sub">Approfondimenti su costi, sicurezza, SEO, AI, hosting e soluzioni gratuite o professionali. Ogni articolo è pensato per aiutarti a decidere prima di acquistare.</p>
       <div class="blog-grid">{''.join(cards)}
@@ -329,32 +406,36 @@ def build_blog(articles: List[Article]) -> None:
     </div>
   </section>
 """
-    (ROOT / "blog.html").write_text(html_page(
-        "Blog SitoWeb.info – Guide su siti web, SEO, sicurezza e costi",
-        "Guide pratiche per capire costi, sicurezza, hosting gratuito, SEO e scelta del sito web più adatto alla tua attività.",
-        "/blog.html",
-        main,
-        "website",
-    ), encoding="utf-8")
+    (ROOT / "blog.html").write_text(
+        html_page(
+            "Blog SitoWeb.info – Guide su siti web, SEO, sicurezza e costi",
+            "Guide pratiche per capire costi, sicurezza, hosting gratuito, SEO e scelta del sito web più adatto alla tua attività.",
+            "/blog.html",
+            main,
+            "website",
+        ),
+        encoding="utf-8",
+    )
 
 
 def build_article_pages(articles: List[Article]) -> None:
     for a in articles:
-        schema = f"""
+        schema = {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": a.title,
+            "description": a.description,
+            "datePublished": a.date,
+            "dateModified": a.updated,
+            "author": {"@type": "Person", "name": AUTHOR_NAME},
+            "publisher": {"@type": "Organization", "name": SITE_NAME},
+            "mainEntityOfPage": clean_url(f"/{a.slug}.html"),
+        }
+        extra_head = f"""
 <script type="application/ld+json">
-{{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": {html.escape(repr(a.title))},
-  "description": {html.escape(repr(a.description))},
-  "datePublished": "{html.escape(a.date)}",
-  "dateModified": "{html.escape(a.updated)}",
-  "author": {{"@type": "Person", "name": "Gabriele Viola"}},
-  "publisher": {{"@type": "Organization", "name": "SitoWeb.info"}},
-  "mainEntityOfPage": "{SITE_URL}/{html.escape(a.slug)}.html"
-}}
+{json.dumps(schema, ensure_ascii=False, indent=2)}
 </script>
-""".replace("'", '"')
+"""
         main = f"""
   <section class="soft-bg">
     <div class="container article-wrap">
@@ -373,20 +454,23 @@ def build_article_pages(articles: List[Article]) -> None:
       </article>
     </div>
   </section>
-{schema}
 """
-        (ROOT / f"{a.slug}.html").write_text(html_page(
-            f"{a.title} – SitoWeb.info",
-            a.description,
-            f"/{a.slug}.html",
-            main,
-            "article",
-        ), encoding="utf-8")
+        (ROOT / f"{a.slug}.html").write_text(
+            html_page(
+                f"{a.title} – SitoWeb.info",
+                a.description,
+                f"/{a.slug}.html",
+                main,
+                "article",
+                extra_head,
+            ),
+            encoding="utf-8",
+        )
 
 
-def build_sitemap(articles: List[Article]) -> None:
+def collect_sitemap_entries(articles: List[Article]) -> List[Tuple[str, str, str, str]]:
     today = date.today().isoformat()
-    entries = []
+    entries: List[Tuple[str, str, str, str]] = []
     seen = set()
 
     def add_entry(loc: str, lastmod: str, changefreq: str, priority: str) -> None:
@@ -397,9 +481,11 @@ def build_sitemap(articles: List[Article]) -> None:
 
     for page in FIXED_PAGES:
         loc = page["loc"]
-        if page.get("only_if_exists") and not (ROOT / loc.lstrip("/")).exists():
+        target = ROOT / page["file"]
+        if page.get("only_if_exists") and not target.exists():
             continue
         add_entry(loc, today, page["changefreq"], page["priority"])
+
     for a in articles:
         add_entry(f"/{a.slug}.html", a.updated, "monthly", a.priority)
 
@@ -410,38 +496,78 @@ def build_sitemap(articles: List[Article]) -> None:
             continue
         add_entry(f"/{path.name}", today, "monthly", "0.7")
 
+    return entries
+
+
+def build_sitemap(articles: List[Article]) -> None:
     urls = []
-    for loc, lastmod, changefreq, priority in entries:
+    for loc, lastmod, changefreq, priority in collect_sitemap_entries(articles):
         urls.append(f"""
   <url>
-    <loc>{SITE_URL}{html.escape(loc)}</loc>
-    <lastmod>{html.escape(lastmod)}</lastmod>
-    <changefreq>{html.escape(changefreq)}</changefreq>
-    <priority>{html.escape(priority)}</priority>
+    <loc>{xml_escape.escape(clean_url(loc))}</loc>
+    <lastmod>{xml_escape.escape(lastmod)}</lastmod>
+    <changefreq>{xml_escape.escape(changefreq)}</changefreq>
+    <priority>{xml_escape.escape(priority)}</priority>
   </url>""")
+
     sitemap = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 %s
 </urlset>
 """ % "".join(urls)
+
     (ROOT / "sitemap.xml").write_text(sitemap, encoding="utf-8")
 
 
+def build_robots() -> None:
+    robots = f"""User-agent: *
+Allow: /
+
+Sitemap: {SITE_URL}/sitemap.xml
+"""
+    (ROOT / "robots.txt").write_text(robots, encoding="utf-8")
+
+
+def build_rss(articles: List[Article]) -> None:
+    now = format_datetime(datetime.now().astimezone())
+    items = []
+
+    for a in articles[:20]:
+        link = clean_url(f"/{a.slug}.html")
+        items.append(f"""
+    <item>
+      <title>{xml_escape.escape(a.title)}</title>
+      <link>{xml_escape.escape(link)}</link>
+      <guid>{xml_escape.escape(link)}</guid>
+      <description>{xml_escape.escape(a.excerpt)}</description>
+      <pubDate>{xml_escape.escape(now)}</pubDate>
+    </item>""")
+
+    rss = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>{xml_escape.escape(SITE_NAME)}</title>
+    <link>{xml_escape.escape(SITE_URL)}</link>
+    <description>{xml_escape.escape(SITE_DESCRIPTION)}</description>
+    <language>it-IT</language>
+    <lastBuildDate>{xml_escape.escape(now)}</lastBuildDate>
+{''.join(items)}
+  </channel>
+</rss>
+"""
+    (ROOT / "rss.xml").write_text(rss, encoding="utf-8")
+
+
 def main() -> None:
-    ARTICLES_DIR.mkdir(exist_ok=True)
     articles = load_articles()
 
-    if not articles:
-        print("Nessun nuovo articolo trovato in articles/*.md. Non modifico nulla.")
-        return
-
     build_article_pages(articles)
-
     build_blog(articles)
-
     build_sitemap(articles)
+    build_robots()
+    build_rss(articles)
 
-    print(f"Generati {len(articles)} articoli, blog.html e sitemap.xml.")
+    print(f"OK: generati/aggiornati {len(articles)} articoli Markdown, blog.html, sitemap.xml, robots.txt e rss.xml.")
 
 
 if __name__ == "__main__":

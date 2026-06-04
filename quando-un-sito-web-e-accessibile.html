@@ -3,7 +3,7 @@
 <head>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Quando un sito web è accessibile? – SitoWeb.info</title>
   <meta name="description" content="Un sito web è accessibile quando può essere usato anche da persone con disabilità o difficoltà temporanee. Ecco cosa significa in pratica.">
   <link rel="canonical" href="https://sitoweb.info/quando-un-sito-web-e-accessibile.html">
@@ -11,6 +11,8 @@
   <meta property="og:description" content="Un sito web è accessibile quando può essere usato anche da persone con disabilità o difficoltà temporanee. Ecco cosa significa in pratica.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://sitoweb.info/quando-un-sito-web-e-accessibile.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" type="application/rss+xml" title="SitoWeb.info RSS" href="https://sitoweb.info/rss.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
@@ -27,7 +29,7 @@ header { padding: 20px 0; border-bottom: 1px solid #eef2f6; position: sticky; to
 .nav-links { display: flex; align-items: center; gap: 1.6rem; font-weight: 500; }
 .nav-links a { text-decoration: none; color: #1e293b; transition: color 0.2s; }
 .nav-links a:hover { color: #2563eb; }
-.menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: #0b2b4a; }
+.menu-toggle { display: none; background: none; border: none; font-size: 1.8rem; color: #0b2b4a; cursor: pointer; }
 .btn-outline, .btn-primary, .btn-light { padding: 12px 24px; border-radius: 60px; font-weight: 700; text-decoration: none; display: inline-block; transition: all 0.2s ease; border: 1.5px solid #2563eb; text-align: center; }
 .btn-outline { background: transparent; color: #2563eb; }
 .btn-outline:hover { background: #2563eb; color: #fff; transform: translateY(-2px); }
@@ -75,15 +77,42 @@ footer a { color: #bfdbfe; text-decoration: none; }
 .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px,1fr)); gap: 30px; }
 footer p { color:#dbeafe; margin-top:10px; }
 hr { border: none; border-top: 1px solid #e2e8f0; margin: 30px 0; }
-@media (max-width: 768px) { .nav-bar { position:relative; } .nav-links { display:none; position:absolute; top:100%; left:0; width:100%; background:white; flex-direction:column; gap:1.2rem; padding:20px; border-top:1px solid #eef2f6; box-shadow:0 10px 20px rgba(0,0,0,0.05); z-index:100; } .nav-links.active { display:flex; } .menu-toggle { display:block; } section { padding: 62px 0; } }
+@media (max-width: 768px) {
+  .nav-bar { position:relative; }
+  .nav-links { display:none; position:absolute; top:100%; left:0; width:100%; background:white; flex-direction:column; gap:1.2rem; padding:20px; border-top:1px solid #eef2f6; box-shadow:0 10px 20px rgba(0,0,0,0.05); z-index:100; }
+  .nav-links.active { display:flex; }
+  .menu-toggle { display:block; }
+  section { padding: 62px 0; }
+}
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Quando un sito web è accessibile?",
+  "description": "Un sito web è accessibile quando può essere usato anche da persone con disabilità o difficoltà temporanee. Ecco cosa significa in pratica.",
+  "datePublished": "2026-06-04",
+  "dateModified": "2026-06-04",
+  "author": {
+    "@type": "Person",
+    "name": "Gabriele Viola"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SitoWeb.info"
+  },
+  "mainEntityOfPage": "https://sitoweb.info/quando-un-sito-web-e-accessibile.html"
+}
+</script>
+
 </head>
 <body>
 
 <header>
   <div class="container nav-bar">
     <a class="logo" href="index.html">SitoWeb<span>.info</span></a>
-    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Apri menu"><i class="fas fa-bars"></i></button>
     <div class="nav-links" id="navLinks">
       <a href="index.html#cos-e">Cos'è un sito</a>
       <a href="index.html#ai">Siti e AI</a>
@@ -152,21 +181,6 @@ hr { border: none; border-top: 1px solid #e2e8f0; margin: 30px 0; }
       </article>
     </div>
   </section>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": &#x27;Quando un sito web è accessibile?&#x27;,
-  "description": &#x27;Un sito web è accessibile quando può essere usato anche da persone con disabilità o difficoltà temporanee. Ecco cosa significa in pratica.&#x27;,
-  "datePublished": "2026-06-04",
-  "dateModified": "2026-06-04",
-  "author": {"@type": "Person", "name": "Gabriele Viola"},
-  "publisher": {"@type": "Organization", "name": "SitoWeb.info"},
-  "mainEntityOfPage": "https://sitoweb.info/quando-un-sito-web-e-accessibile.html"
-}
-</script>
-
 
 </main>
 
